@@ -1,0 +1,22 @@
+.priority td,
+.priority th {
+    cursor: pointer;
+}
+
+.priority td.selected {
+    background-color: #b6d7a8;
+    cursor: auto;
+}
+
+.priority th.selected {
+    background-color: #ea9999;
+    cursor: auto;
+}
+
+.priority input {
+    display: none;
+}
+
+.priority .selected input {
+    display: inline;
+}
