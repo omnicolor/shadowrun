@@ -91,7 +91,7 @@
         <tr>
             <th class="selected" id="priority-d">D</th>
             <td id="race-d">
-                <input id="human-d" name="race" type="radio" value="human-3">
+                <input id="human-d" name="race" type="radio" value="human-d">
                 <label for="human-d">Human (3)</label><br>
                 <input id="elf-d" name="race" type="radio" value="elf-d">
                 <label for="elf-d">Elf (0)</label>
@@ -147,49 +147,55 @@ Karma Total Karma Misc
             <th><label for="body">Body</label></th>
             <td><input id="body" max="6" min="1" name="body" step="1" type="number"></td>
             <th><label for="essence">Essence</label></th>
-            <td><input id="essence" max="6" readonly value="6" type="number"></td>
+            <td><input id="essence" max="6" readonly value="6" tabindex="-1" type="number"></td>
         </tr>
         <tr>
             <th><label for="agility">Agility</label></th>
             <td><input id="agility" max="6" min="1" name="agility" step="1" type="number"></td>
             <th><label for="magic">Magic</label></th>
-            <td><input id="magic" name="magic" readonly type="number"></td>
+            <td><input id="magic" max="6" min="0" name="magic" step="1" type="number"></td>
         </tr>
         <tr>
             <th><label for="reaction">Reaction</label></th>
             <td><input id="reaction" max="6" min="1" name="reaction" step="1" type="number"></td>
             <th><label for="initiative">Initiative</label></th>
-            <td><input id="initiative" readonly type="number"></td>
+            <td><input id="initiative" readonly tabindex="-1" type="number"></td>
         </tr>
         <tr>
             <th><label for="strength">Strength</label></th>
             <td><input id="strength" max="6" min="1" name="strength" step="1" type="number"></td>
             <th><label for="matrix-initiative">Matrix Initiative</label></th>
-            <td><input id="matrix-initiative" readonly type="number"></td>
+            <td><input id="matrix-initiative" readonly tabindex="-1" type="number"></td>
         </tr>
         <tr>
             <th><label for="willpower">Willpower</label></th>
             <td><input id="willpower" max="6" min="1" name="willpower" step="1" type="number"></td>
             <th><label for="astral-initiative">Astral Initiative</label></th>
-            <td><input id="astral-initiative" readonly type="number"></td>
+            <td><input id="astral-initiative" readonly tabindex="-1" type="number"></td>
         </tr>
         <tr>
             <th><label for="logic">Logic</label></th>
             <td><input id="logic" max="6" min="1" name="logic" step="1" type="number"></td>
             <th><label for="composure">Composure</label></th>
-            <td><input id="composure" readonly type="number"></td>
+            <td><input id="composure" readonly tabindex="-1" type="number"></td>
         </tr>
         <tr>
             <th><label for="intuition">Intuition</label></th>
             <td><input id="intuition" max="6" min="1" name="intuition" step="1" type="number"></td>
             <th><label for="judge-intentions">Judge intentions</label></th>
-            <td><input id="judge-intentions" readonly type="number"></td>
+            <td><input id="judge-intentions" readonly tabindex="-1" type="number"></td>
         </tr>
         <tr>
             <th><label for="charisma">Charisma</label></th>
-            <td><input id="charisma" name="charisma">Charisma</td>
+            <td><input id="charisma" max="6" min="1" name="charisma" step="1" type="number"></td>
             <th><label for="memory">Memory</label></th>
-            <td><input id="memory" readonly type="number"></td>
+            <td><input id="memory" readonly tabindex="-1" type="number"></td>
+        </tr>
+        <tr>
+            <th><label for="edge">Edge</label></th>
+            <td><input id="edge" max="6" min="1" name="edge" step="1" type="number"></td>
+            <th><label for="lift">Lift/Carry</label></th>
+            <td><input id="lift" name="lift" readonly tabindex="-1" type="number"></td>
         </tr>
     </table>
 </div>
