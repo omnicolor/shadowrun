@@ -279,6 +279,7 @@ sr.updateAttributeLimits = function updateAttributeLimits(race) {
         input = $('#' + attribute)[0];
         input.max = raceLimits[attribute]['max'];
         input.min = raceLimits[attribute]['min'];
+        input.value = raceLimits[attribute]['min'];
     }
     input = $('#edge').val(raceLimits['edge']['min']);
 };
