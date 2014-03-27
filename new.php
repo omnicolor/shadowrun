@@ -148,6 +148,8 @@ Karma Total Karma Misc
             <td><input id="body" max="6" min="1" name="body" step="1" type="number"></td>
             <th><label for="essence">Essence</label></th>
             <td><input id="essence" max="6" readonly value="6" tabindex="-1" type="number"></td>
+            <th><label for="special-points">Special points</label></th>
+            <td><input id="special-points" max="9" min="0" name="special-points" step="1" type="number"></td>
         </tr>
         <tr>
             <th><label for="agility">Agility</label></th>

@@ -4,6 +4,29 @@
 var sr = {};
 
 /**
+ * @type {Number} Amount of special points the character starts with based on
+ * their race priority.
+ */
+sr.specialPointTotal;
+
+/**
+ * @type {Number} Amount of resonance the character gets based on their magic or
+ * resonance priority choice.
+ */
+sr.freeResonance = 0;
+
+/**
+ * @type {Number} Amount of magic rating the character gets based on their magic
+ * or resonance priority choice.
+ */
+sr.freeMagic = 0;
+
+/**
+ * @type {Number} Amount of free edge the character gets based on their race.
+ */
+sr.freeEdge = 1;
+
+/**
  * Set up all of the required handlers.
  */
 sr.setupHandlers = function setupHandlers() {
@@ -11,9 +34,11 @@ sr.setupHandlers = function setupHandlers() {
     $('#body').on('change', sr.updateLift);
     $('#charisma').on('change', sr.updateComposure);
     $('#charisma').on('change', sr.updateJudgeIntentions);
+    $('#edge').on('change', sr.updateSpecialPoints);
     $('#intuition').on('change', sr.updateJudgeIntentions);
     $('#intuition').on('change', sr.updateInitiative);
     $('#logic').on('change', sr.updateMemory);
+    $('#magic').on('change', sr.updateSpecialPoints);
     $('#reaction').on('change', sr.updateInitiative);
     $('#strength').on('change', sr.updateLift);
     $('#willpower').on('change', sr.updateComposure);
@@ -155,6 +180,34 @@ sr.updateRacePriority = function updateRace(e) {
     var race = $(e.target).val().slice(0, -2);
     var priority = $(e.target).val().slice(-1);
     sr.updateAttributeLimits(race);
+    sr.updateSpecialPointTotal(race, priority);
+};
+
+/**
+ * Update how many special points the character has remaining.
+ */
+sr.updateSpecialPoints = function updateSpecialPoints(e) {
+    var edge = parseInt($('#edge').val(), 10);
+    var magic = parseInt($('#magic').val(), 10);
+    var resonance = parseInt($('#resonance').val(), 10);
+    var specialPointsEl = $('#special-points');
+    var points;
+
+    if (isNaN(edge)) {
+        edge = 0;
+    }
+    if (isNaN(magic)) {
+        magic = 0;
+    }
+    if (isNaN(resonance)) {
+        resonance = 0;
+    }
+
+    points = sr.specialPointTotal
+        - edge + sr.freeEdge
+        - magic + sr.freeMagic
+        - resonance + sr.freeResonance;
+    specialPointsEl.val(points);
 };
 
 /**
@@ -227,6 +280,27 @@ sr.updateAttributeLimits = function updateAttributeLimits(race) {
         input.max = raceLimits[attribute]['max'];
         input.min = raceLimits[attribute]['min'];
     }
+    input = $('#edge').val(raceLimits['edge']['min']);
+};
+
+/**
+ * Update the number of points the user gets to spend on magic, edge, or
+ * resonance based on their race and priority.
+ * @param {string} race Race the user chose
+ * @param {string} priority Priority level the race was chosen at
+ */
+sr.updateSpecialPointTotal = function updateSpecialPointTotal(race, priority) {
+    var points = {
+        dwarf: { a: 7, b: 4, c: 1 },
+        elf: { a: 8, b: 6, c: 3, d: 0 },
+        human: { a: 9, b: 7, c: 5, d: 3, e: 1 },
+        ork: { a: 7, b: 4, c: 0 },
+        troll: { a: 5, b: 0 }
+    };
+    var specialPointsEl = $('#special-points');
+    sr.specialPointTotal = points[race][priority];
+    specialPointsEl.val(sr.specialPointTotal);
+    sr.updateSpecialPoints();
 };
 
 $(document).ready(sr.setupHandlers);
