@@ -218,19 +218,19 @@ sr.updateAttributeLimits = function updateAttributeLimits(race) {
     var limits = {
         dwarf: {
             agility: { max: 6, min: 1 },
-            body: { max: 3, min: 8 },
+            body: { max: 8, min: 3 },
             charisma: { max: 6, min: 1 },
             edge: { max: 6, min: 1 },
             intuition: { max: 6, min: 1 },
             logic: { max: 6, min: 1 },
             reaction: { max: 5, min: 1 },
-            strength: { max: 3, min: 8 },
+            strength: { max: 8, min: 3 },
             willpower: { max: 7, min: 2 }
         },
         elf: {
             agility: { max: 7, min: 2 },
             body: { max: 6, min: 1 },
-            charisma: { max: 3, min: 8 },
+            charisma: { max: 8, min: 3 },
             edge: { max: 6, min: 1 },
             intuition: { max: 6, min: 1 },
             logic: { max: 6, min: 1 },
