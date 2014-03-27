@@ -29,8 +29,8 @@
                 <label for="elf-a">Elf (8)</label><br>
                 <input id="dwarf-a" type="radio" name="race" value="dwarf-a">
                 <label for="dwarf-a">Dwarf (7)</label><br>
-                <input id="orc-a" name="race" type="radio" value="orc-a">
-                <label for="orc-a">Ork (7)</label><br>
+                <input id="ork-a" name="race" type="radio" value="ork-a">
+                <label for="ork-a">Ork (7)</label><br>
                 <input id="troll-a" name="race" type="radio" value="troll-a">
                 <label for="troll-a">Troll (5)</label>
             </td>
