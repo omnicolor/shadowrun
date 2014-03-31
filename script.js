@@ -27,22 +27,40 @@ sr.freeMagic = 0;
 sr.freeEdge = 1;
 
 /**
+ * @type {Number} Number of "free" attribute points character gets for race.
+ */
+sr.freeAttributePoints = 0;
+
+/**
+ * @type {Number} Number of attribute points from priority.
+ */
+sr.attributePoints = 0;
+
+/**
  * Set up all of the required handlers.
  */
 sr.setupHandlers = function setupHandlers() {
     $('.priority tbody').on('click', sr.handlePriorityClick);
+    $('#agility').on('change', sr.updateAttributePoints);
     $('#body').on('change', sr.updateLift);
+    $('#body').on('change', sr.updateAttributePoints);
     $('#charisma').on('change', sr.updateComposure);
     $('#charisma').on('change', sr.updateJudgeIntentions);
+    $('#charisma').on('change', sr.updateAttributePoints);
     $('#edge').on('change', sr.updateSpecialPoints);
     $('#intuition').on('change', sr.updateJudgeIntentions);
     $('#intuition').on('change', sr.updateInitiative);
+    $('#intuition').on('change', sr.updateAttributePoints);
     $('#logic').on('change', sr.updateMemory);
+    $('#logic').on('change', sr.updateAttributePoints);
     $('#magic').on('change', sr.updateSpecialPoints);
     $('#reaction').on('change', sr.updateInitiative);
+    $('#reaction').on('change', sr.updateAttributePoints);
     $('#strength').on('change', sr.updateLift);
+    $('#strength').on('change', sr.updateAttributePoints);
     $('#willpower').on('change', sr.updateComposure);
     $('#willpower').on('change', sr.updateMemory);
+    $('#willpower').on('change', sr.updateAttributePoints);
 
     $('input[name="race"]').on('change', sr.updateRacePriority);
 };
@@ -61,6 +79,9 @@ sr.handlePriorityClick = function handlePriorityClick(e) {
     cell = e.target;
     sr.changeRowSelection(cell);
     sr.changeColumnSelection(cell);
+    if (0 === cell.id.indexOf('attributes-')) {
+        sr.updateAttributes(cell);
+    }
 };
 
 /**
@@ -98,6 +119,44 @@ sr.changeColumnSelection = function changeColumnSelection(cell) {
         $cell.removeClass('selected');
         $priority.addClass('selected');
     }
+};
+
+/**
+ * Update a character's attribute points when selecting the attribute priority.
+ * @param {Object} cell
+ */
+sr.updateAttributes = function updateAttributes(cell) {
+    var priority = cell.id.slice(-1);
+    var attributes = {
+        a: 24,
+        b: 20,
+        c: 16,
+        d: 14,
+        e: 12
+    };
+    sr.attributePoints = attributes[priority];
+    sr.updateAttributePoints();
+};
+
+/**
+ * Update the number of attribute points a character has to spend.
+ */
+sr.updateAttributePoints = function updateAttributePoints() {
+    // Character gets their attribute priority points + the "free" points from
+    // their racial minimums.
+    var points = sr.attributePoints + sr.freeAttributePoints;
+
+    var attributes = [
+        'body', 'agility', 'reaction', 'strength', 'willpower', 'logic',
+        'intuition', 'charisma'
+    ];
+    var pointsEl = $('#attribute-points')[0];
+    var attributeEl;
+    attributes.forEach(function(attribute) {
+        attributeEl = $('#' + attribute)[0];
+        points -= parseInt(attributeEl.value, 10);
+    });
+    pointsEl.value = points;
 };
 
 /**
@@ -274,12 +333,17 @@ sr.updateAttributeLimits = function updateAttributeLimits(race) {
     };
     var raceLimits = limits[race];
     var input;
+    sr.freeAttributePoints = 0;
 
     for (attribute in raceLimits) {
         input = $('#' + attribute)[0];
         input.max = raceLimits[attribute]['max'];
         input.min = raceLimits[attribute]['min'];
         input.value = raceLimits[attribute]['min'];
+        if (attribute !== 'edge') {
+            sr.freeAttributePoints += raceLimits[attribute]['min'];
+        }
+        $(input).trigger('change');
     }
     input = $('#edge').val(raceLimits['edge']['min']);
 };
