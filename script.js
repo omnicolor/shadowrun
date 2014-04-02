@@ -240,6 +240,7 @@ sr.updateRacePriority = function updateRace(e) {
     var priority = $(e.target).val().slice(-1);
     sr.updateAttributeLimits(race);
     sr.updateSpecialPointTotal(race, priority);
+    $('#metatype').val(race);
 };
 
 /**
