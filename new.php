@@ -120,28 +120,53 @@
 
 <br>
 
-<div class="left">
-    <div class="legend">Personal data</div>
-    <div>
-        <label for="name">Name</label>
-        <input id="name" name="name">
-    </div>
-    <div>
-Metatype Ethnicity
-    </div>
-    <div>
-Age Sex Height Weight
-    </div>
-    <div>
-Street Cred Notoriety Public Awareness
-    </div>
-    <div>
-Karma Total Karma Misc
-    </div>
-</div>
+<section class="left">
+    <h1 class="legend">Personal data</h1>
+    <table>
+        <tr>
+            <th><label for="name">Name</label></td>
+            <td><input id="name" name="name"></td>
+        </tr>
+        <tr>
+            <th><label for="metatype">Metatype</label></th>
+            <td><input id="metatype" name="metatype" readonly></td>
+            <th><label for="ethnicity">Ethnicity</label></th>
+            <td><input id="ethnicity" name="ethnicity"></td>
+        </tr>
+        <tr>
+            <th><label for="age">Age</label></th>
+            <td><input id="age" maxlength="3" name="age" type="number"></td>
+            <th><label>Sex</label></th>
+            <td>
+                <input id="sex-male" name="sex" type="radio" value="m">
+                <label for="sex-male">Male</label>
+                <input id="sex-female" name="sex" type="radio" value="f">
+                <label for="sex-female">Female</label>
+            </td>
+            <th><label for="height">Height</label></th>
+            <td><input id="height" max="500" min="60" name="height" type="number">cm</td>
+            <th><label for="weight">Weight</label></th>
+            <td><input id="weight" max="670" min="27" name="weight" type="number">kg</td>
+        </tr>
+        <tr>
+            <th><label for="street-cred">Street Cred</label></th>
+            <td><input id="street-cred" name="street-cred" value="0"></td>
+            <th><label for="notoriety">Notoriety</label></th>
+            <td><input id="notoriety" name="notoriety" value="0"></td>
+            <th><label for="public-awareness">Public Awareness</label></th>
+            <td><input id="public-awareness" name="public-awareness" value="0"></td>
+        </tr>
+        <tr>
+            <th><label for="karma">Karma</label></th>
+            <td><input id="karma" name="karma" type="number"></td>
+            <th><label for="total-karma">Total Karma</label></th>
+            <td><input id="total-karma" name="total-karma" type="number"></td>
+        </tr>
+    </table>
+</section>
 
-<div class="left">
-    <div class="legend">Attributes</div>
+<section class="left">
+    <h1 class="legend">Attributes</h1>
     <table>
         <tr>
             <th><label for="body">Body</label></th>
@@ -202,7 +227,7 @@ Karma Total Karma Misc
             <td><input id="lift" name="lift" readonly tabindex="-1" type="number"></td>
         </tr>
     </table>
-</div>
+</section>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
 </script>

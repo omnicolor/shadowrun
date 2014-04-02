@@ -1,3 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
+.priority {
+    border: 1px solid #000000;
+}
+
 .priority td,
 .priority th {
     cursor: pointer;
@@ -19,4 +27,29 @@
 
 .priority .selected input {
     display: inline;
+}
+
+section {
+    border: 1px solid #000000;
+    margin-bottom: 1em;
+    margin-top: 1.5em;
+    padding-top: 1em;
+    position: relative;
+}
+
+h1.legend {
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    left: 1em;
+    position: absolute;
+    top: -1.5em;
+    z-index: 2;
+}
+
+input[readonly] {
+    border: 0;
+}
+
+th {
+    text-align: left;
 }
