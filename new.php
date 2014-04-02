@@ -255,7 +255,7 @@
             </tr>
             <tr>
                 <td title="Analytical Mind describes the uncanny ability to logically analyze information, deduce solutions to problems, or separate vital information from distractions and noise. It’s useful in cracking cyphers, solving puzzles, figuring out traps, and sifting through data. This quality gives the character a +2 dice pool modifier to any Logic Tests involving pattern recognition, evidence analysis, clue hunting, or solving puzzles. This quality also reduces the time it takes the character to solve a problem by half.">
-                    <input id="analytical-mind" name="quality[]" type="checkbox" value="1">
+                    <input id="analytical-mind" name="quality[]" type="checkbox" value="analytical-mind">
                     <label for="analytical-mind">Analytical Mind</label>
                 </td>
                 <td>5</td>
@@ -267,7 +267,7 @@
             </tr>
             <tr>
                 <td title="This quality is how you become even better than the best in the world. The standard limit for skills is 12. Every so often, there is a character who can exceed limitations and be truly exceptional in a particular skill. With this particular quality, the character can have one skill rated at 7 at character creation, and may eventually build that skill up to rating 13. Characters may only take the Aptitude quality once.">
-                    <input id="aptitude" name="quality[]" type="checkbox" value="1">
+                    <input id="aptitude" name="quality[]" type="checkbox" value="aptitude">
                     <label for="aptitude">Aptitude</label>
                 </td>
                 <td>14</td>
@@ -279,7 +279,7 @@
             </tr>
             <tr>
                 <td title="With the Astral Chameleon quality, the character's astral signature blends into the background of astral space and is difficult to detect. All signatures left by the character last only half as long as other astral signatures. Any individu- als assensing astral signatures left behind by a character with this quality receive a –2 dice pool modifier for the Assensing Test. Only characters with a Magic rating and capable of leaving astral signatures may have this quality.">
-                    <input id="astral-chameleon" name="quality[]" type="checkbox" value="1">
+                    <input id="astral-chameleon" name="quality[]" type="checkbox" value="astral-chameleon">
                     <label for="astral-chameleon">Astral Chameleon</label>
                 </td>
                 <td>10</td>
@@ -291,7 +291,7 @@
             </tr>
             <tr>
                 <td title="A character with this quality reads, writes, and speaks a second language fluently. They can list a second lan- guage as a native tongue (see Language Skills, p. 150).  This quality can only be acquired at character creation; selecting it gives the character a second free language skill during Step Five: Purchase Active, Knowledge, and Language Skills, (p. 88).">
-                    <input id="bilingual" name="quality[]" type="checkbox" value="1">
+                    <input id="bilingual" name="quality[]" type="checkbox" value="bilingual">
                     <label for="bilingual">Bilingual</label>
                 </td>
                 <td>5</td>
@@ -309,7 +309,7 @@ Increase the threshold for anyone to recall specific details about the character
 Individuals attempting to shadow or physically locate a character with the Blandness quality in a populated setting receive a –2 dice pool modifier on all tests related to their search. The same penalty applies if they're asking around about the person based on the individual’s physical appearance. The modifier does not, however, apply to magical or Matrix searches. If the character acquires any visible tattoos, scars, obvious cyberware, or other distinguishing features, the bonuses from the Blandness quality go away until the distinctive features are removed from the character’s appearance.
 
 In certain circumstances and specific situations, the gamemaster may determine that Blandness does not apply. For example, a troll with the Blandness quality still towers head and shoulders over a crowd of humans and so still stands out, no matter how average their horns may be. The character only regains his bonus by leaving the situation where he stands out.">
-                    <input id="blandness" name="quality[]" type="checkbox" value="1">
+                    <input id="blandness" name="quality[]" type="checkbox" value="blandness">
                     <label for="blandness">Blandness</label>
                 </td>
                 <td>8</td>
@@ -321,7 +321,7 @@ In certain circumstances and specific situations, the gamemaster may determine t
             </tr>
             <tr>
                 <td title="A character with the Catlike quality is gifted with an uncanny elegance, a stealthy gait, and an almost preternatural ability to move without making a sound.  They also claim they land on their feet when dropped, though they tend not to let people test this. This quality adds a +2 dice pool modifier to Sneaking skill tests.">
-                    <input id="catlike" name="catlike" type="checkbox" value="1">
+                    <input id="catlike" name="quality[]" type="checkbox" value="catlike">
                     <label for="catlike">Catlike</label>
                 </td>
                 <td>7</td>
@@ -333,7 +333,7 @@ In certain circumstances and specific situations, the gamemaster may determine t
             </tr>
             <tr>
                 <td title="Ones and zeroes are practically a native language to a Codeslinger. The character is adept at performing a particular Matrix action (which she selects when she selects this quality) and receives a +2 dice pool modifier to that Matrix action. This can only be selected for Matrix Actions (p. 237) that have a test associated with them.">
-                    <input id="codeslinger" name="codeslinger" type="checkbox" value="1">
+                    <input id="codeslinger" name="quality[]" type="checkbox" value="codeslinger">
                     <label for="codeslinger">Codeslinger</label>
                 </td>
                 <td>10</td>
@@ -345,7 +345,7 @@ In certain circumstances and specific situations, the gamemaster may determine t
             </tr>
             <tr>
                 <td title="A Double-Jointed character has unusually flexible joints and can bend and contort his body into extreme positions. The character receives a +2 dice pool modifier for Escape Artist tests. The character may also be able to squeeze into small, cramped spaces where less limber characters cannot. They’re also great at parties and bars.">
-                    <input id="double-jointed" name="double-jointed" type="checkbox" value="1">
+                    <input id="double-jointed" name="quality[]" type="checkbox" value="double-jointed">
                     <label for="double-jointed">Double Jointed</label>
                 </td>
                 <td>6</td>
@@ -357,7 +357,7 @@ In certain circumstances and specific situations, the gamemaster may determine t
             </tr>
             <tr>
                 <td title="The Exceptional Atribute quality is how you get to be the charismatic troll, or the agile dwarf. It allows you to possess one attribute at a level one point above the metatype maximum limit. For example, an ork character with the Exceptional Attribute quality for Strength could take his Strength attribute up to 10 before augmentations are applied, instead of the normal limit of 9. Exceptional Attribute also applies toward Special Attributes such as Magic and Resonance. Edge cannot affected by the Exceptional Attribute (Edge is raised by another quality called Lucky). A character may only take Exceptional Attribute once, and only with the gamemaster’s approval.">
-                    <input id="exceptional-attribute" name="exceptional-attribute" type="checkbox" value="1">
+                    <input id="exceptional-attribute" name="quality[]" type="checkbox" value="exceptional-attribute">
                     <label for="exceptional-attribute">Exceptional Attribute</label>
                 </td>
                 <td>14</td>
@@ -369,7 +369,7 @@ In certain circumstances and specific situations, the gamemaster may determine t
             </tr>
             <tr>
                 <td title="The First Impression quality enables a character to slide easily into new environments, situations, groups, and jobs. Whether infiltrating a gang, making contacts in a new city, or wrangling an invite to a private meet, the character gains a temporary +2 dice pool modifier for relevant Social Tests such as Negotiation and Con during the first meeting. This modifier does not apply to second and subsequent encounters.">
-                    <input id="first-impression" name="first-impression" type="checkbox" value="1">
+                    <input id="first-impression" name="quality[]" type="checkbox" value="first-impression">
                     <label for="first-impression">First Impression</label>
                 </td>
                 <td>11</td>
@@ -381,7 +381,7 @@ In certain circumstances and specific situations, the gamemaster may determine t
             </tr>
             <tr>
                 <td title="A technomancer or magic user with the Focused Concentration quality has the discipline to manipulate mana or Resonance more precisely than otherwise possible. This precision reduces stress to the magic user’s or technomancer’s body. She is able to sustain one spell/complex form with a force/level equal to her Focused Concentration rating without suffering any penalties. For example, a magic user with Focused Concentration rating 3 may sustain a Force 3 Armor spell without taking the negative dice pool modifier for sustaining a spell. Sustaining any additional spells or com- plex forms incurs the standard –2 dice pool modifier per spell or complex form sustained. This quality may only be taken by magic user characters that are able to cast spells and technomancers.">
-                    <input id="focused-concentration" name="focused-concentration" type="checkbox" value="1">
+                    <input id="focused-concentration" name="quality[]" type="checkbox" value="focused-concentration">
                     <label for="focused-concentration">Focused Concentration</label>
                 </td>
                 <td>4-24</td>
@@ -393,7 +393,7 @@ In certain circumstances and specific situations, the gamemaster may determine t
             </tr>
             <tr>
                 <td title="The Gearhead is who you look for when it’s time to stomp on the gas and move. She’s a natural-born driver or pilot. When she’s at the wheel/stick/controls of a vehicle or drone, she has an intuitive understanding of its limitations and its capabilities and is able to coax whatever machine she’s controlling to perform at its best. During vehicle or chase combat, a Gearhead can increase the Speed of her vehicle or drone by 20 percent or increase the Handling modifier by +1 (player’s choice). She also receives a +2 dice pool modifier when attempting difficult maneuvers or stunts in the vehicle. This bonus lasts for 1D6 minutes.">
-                    <input id="gearhead" name="gearhead" type="checkbox" value="1">
+                    <input id="gearhead" name="quality[]" type="checkbox" value="gearhead">
                     <label for="gearhead">Gearhead</label>
                 </td>
                 <td>11</td>
@@ -406,7 +406,7 @@ those skills.">
             </tr>
             <tr>
                 <td title="When a bug spirit with dripping mandibles comes call- ing, the character with Guts is the one most likely to stand and fight instead of freaking the hell out. Guts gives a character a +2 dice pool modifier on tests to resist fear and intimidation, including magically induced fear from spells or critter powers.">
-                    <input id="guts" name="guts" type="checkbox" value="1">
+                    <input id="guts" name="quality[]" type="checkbox" value="guts">
                     <label for="guts">Guts</label>
                 </td>
                 <td>10</td>
@@ -418,7 +418,7 @@ those skills.">
             </tr>
             <tr>
                 <td title="High Pain Tolerance lets a character keep delivering the pain even if she’s had plenty piled on her own head.  A character with High Pain Tolerance can ignore one box of damage per rating point of this quality when calculating wound modifiers (see Wound Modifiers, p.  169). So a character with this quality at Rating 2 can take 4 boxes of damage but carry on without wound modifiers as if she only had 2 boxes of damage. The –1 wound modifier would then kick in when the character takes her fifth box in damage. This quality may not be used with the Pain Resistance adept power, pain editor bioware, or damage compensator bioware.">
-                    <input id="high-pain" name="high-pain" type="checkbox" value="1">
+                    <input id="high-pain" name="quality[]" type="checkbox" value="high-pain">
                     <label for="high-pain">High Pain Tolerance</label>
                 </td>
                 <td>7</td>
@@ -430,7 +430,7 @@ those skills.">
             </tr>
             <tr>
                 <td title="If a character knows her neighborhood better than anyone—the shortcuts, the hiding places, and the people she can trust—then she probably has the Home Ground quality. She knows the families who live there, their stories, and what the kids who moved out are doing; she knows the streets better than GridGuide, knows things that aren’t on GridGuide, and knows when GridGuide is wrong. She knows the politics of the gangs, who’s running for whom and who’s running from whom. But it’s not just the physical streets. Depending on the character, her Home Ground quality can manifest in ways specific to who and what she is.">
-                    <input id="home-ground" name="home-ground" type="checkbox" value="1">
+                    <input id="home-ground" name="quality[]" type="checkbox" value="home-ground">
                     <label for="home-ground">Home Ground</label>
                 </td>
                 <td>10</td>
@@ -443,7 +443,7 @@ damage tracks.">
             </tr>
             <tr>
                 <td title="A metahuman character with the Human-Looking quality can pass for human in most circumstances. Human NPCs respond with neutral attitudes toward such characters when making Social skill tests (p. 82), even those humans who are particularly biased against metahumans. The character may suffer increased animosity from metahuman NPCs who are prejudiced against humans and who either mistake him for human or distrust his motives for trying to look human. Only elves, dwarfs, and orks can take the Human-Looking quality.">
-                    <input id="human-looking" name="human-looking" type="checkbox" value="1">
+                    <input id="human-looking" name="quality[]" type="checkbox" value="human-looking">
                     <label for="human-looking">Human Looking</label>
                 </td>
                 <td>6</td>
@@ -455,7 +455,7 @@ damage tracks.">
             </tr>
             <tr>
                 <td title="Bodies and minds have limits, but some people have the will to push right through those boundaries. For each level of Indomitable, a character receives a +1 increase to an Inherent limit of his choice (Mental, Physical, or Social). He can take up to three levels and can apply them in any way he chooses (+3 to one Inherent Limit, for example; or +2 to one Inherent and +1 to another; or +1 to all three).">
-                    <input id="indomitable" name="indomitable" type="checkbox" value="1">
+                    <input id="indomitable" name="quality[]" type="checkbox" value="indomitable">
                     <label for="indomitable">Indomitable</label>
                 </td>
                 <td>8-24</td>
@@ -479,7 +479,7 @@ damage tracks.">
             </tr>
             <tr>
                 <td title="The dice roll and the coin flips this character’s way more often than not, giving her the chance to drop jaws in amazement at her good fortune. Lucky allows a character to possess an Edge attribute one point higher than his metatype maximum (for example, a human character could raise her Edge to 8). Note that taking this quality does not actually increase the character’s current Edge rating, it just allows her the opportunity to do so; the Karma cost for gaining the extra point must still be paid. This quality may only be taken once and must be approved by the gamemaster. The Lucky quality cannot be combined with Exceptional Attribute.">
-                    <input id="lucky" name="lucky" type="checkbox" value="1">
+                    <input id="lucky" name="quality[]" type="checkbox" value="lucky">
                     <label for="lucky">Lucky</label>
                 </td>
                 <td>12</td>
@@ -491,7 +491,7 @@ damage tracks.">
             </tr>
             <tr>
                 <td title="This is the wonderful ability to potentially make a Fire- ball bounce away. For every 6 Karma spent on Magic Resistance, a character receives 1 additional die for Spell Resistance Tests. The Magical Resistance quality, however, is always “on”—the character cannot lower it to receive beneficial spells such as Heal. A character with Magic Resistance cannot take part in spells that require a voluntary subject; such spells automatically fail when used on magic-resistant characters.">
-                    <input id="magic-resistance" name="magic-resistance" type="checkbox" value="1">
+                    <input id="magic-resistance" name="quality[]" type="checkbox" value="magic-resistance">
                     <label for="magic-resistance">Magic Resistance</label>
                 </td>
                 <td>6-24</td>
@@ -503,7 +503,7 @@ damage tracks.">
             </tr>
             <tr>
                 <td title="Everyone needs some help in life, even if it comes from someone relatively filmy and insubstantial. Mentor Spirit means the character follows a patron spirit (see Mentor Spirits, p. 320) that guides him in his practice of magic and provides certain advantages and disadvantages to his natural abilities. A character may change mentor spirits, but he may have only one mentor spirit at a time. To change mentor spirits, the character must first buy off the current mentor spirit as if it were a Negative quality. He can then purchase the quality again to follow a different mentor spirit. This cost represents the toll of divorcing from one mentor spirit and bonding with a new one.">
-                    <input id="mentor-spirit" name="mentor-spirit" type="checkbox" value="1">
+                    <input id="mentor-spirit" name="quality[]" type="checkbox" value="mentor-spirit">
                     <label for="mentor-spirit">Mentor Spirit</label>
                 </td>
                 <td>5</td>
@@ -515,7 +515,7 @@ damage tracks.">
             </tr>
             <tr>
                 <td title="A character with this quality has an innate combination of physical fitness, spatial awareness, and natural athletic or gymnastic talent. While the character may not be a world-class athlete and may require training to achieve peak performance, he is in prime physical shape for his size and weight class. The Natural Athlete adds a +2 dice pool modifier for Running and Gymnastics skill tests.">
-                    <input id="natural-athlete" name="natural-athlete" type="checkbox" value="1">
+                    <input id="natural-athlete" name="quality[]" type="checkbox" value="natural-athlete">
                     <label for="natural-athlete">Natural Athlete</label>
                 </td>
                 <td>7</td>
@@ -527,7 +527,7 @@ damage tracks.">
             </tr>
             <tr>
                 <td title="This quality makes the character’s neural structure resistant to feedback. This gives her 1 point of natural biofeedback filtering, which is cumulative with a Biofeedback Filter program or a technomancer’s firewall (p. 251).">
-                    <input id="natural-hardening" name="natural-hardening" type="checkbox" value="1">
+                    <input id="natural-hardening" name="quality[]" type="checkbox" value="natural-hardening">
                     <label for="natural-hardening">Natural Hardening</label>
                 </td>
                 <td>10</td>
@@ -539,7 +539,7 @@ damage tracks.">
             </tr>
             <tr>
                 <td title="The ability to casually sip poison can never be overrated. A character with Natural Immunity has an innate or developed immunity to one single disease or toxin.">
-                    <input id="natural-immunity" name="natural-immunity" type="checkbox" value="1">
+                    <input id="natural-immunity" name="quality[]" type="checkbox" value="natural-immunity">
                     <label for="natural-immunity">Natural Immunity</label>
                 </td>
                 <td>4,10</td>
