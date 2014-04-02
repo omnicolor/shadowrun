@@ -158,7 +158,7 @@
         </tr>
         <tr>
             <th><label for="karma">Karma</label></th>
-            <td><input id="karma" name="karma" type="number"></td>
+            <td><input id="karma" name="karma" type="number" value="25"></td>
             <th><label for="total-karma">Total Karma</label></th>
             <td><input id="total-karma" name="total-karma" type="number"></td>
         </tr>
