@@ -63,6 +63,8 @@ sr.setupHandlers = function setupHandlers() {
     $('#willpower').on('change', sr.updateAttributePoints);
 
     $('input[name="race"]').on('change', sr.updateRacePriority);
+
+    $('#magic-e').on('click', sr.removeMagic);
 };
 
 /**
@@ -367,6 +369,19 @@ sr.updateSpecialPointTotal = function updateSpecialPointTotal(race, priority) {
     sr.specialPointTotal = points[race][priority];
     specialPointsEl.val(sr.specialPointTotal);
     sr.updateSpecialPoints();
+};
+
+/**
+ * The user has selected no magic, remove any of the magic options.
+ */
+sr.removeMagic = function removeMagic() {
+    $('#magic').val(0).prop('disabled', 'disabled');
+    $('#astral-chameleon').prop('disabled', 'disabled');
+    $('#focused-concentration').prop('disabled', 'disabled');
+    $('#mentor-spirit').prop('disabled', 'disabled');
+    $('#spirit-affinity').prop('disabled', 'disabled');
+    $('#astral-beacon').prop('disabled', 'disabled');
+    $('#spirit-bane').prop('disabled', 'disabled');
 };
 
 $(document).ready(sr.setupHandlers);
