@@ -8,6 +8,33 @@
 
 <body>
 
+<table class="points-to-spend">
+    <tr>
+        <th><label for="special-points">Special</label></th>
+        <td><input id="special-points" max="9" min="0" name="special-points" readonly type="number"></td>
+    </tr>
+    <tr>
+        <th><label for="attribute-points">Attribute</label></th>
+        <td><input id="attribute-points" max="24" min="0" name="attribute-points" readonly type="number"></td>
+    </tr>
+    <tr>
+        <th><label for="karma-points">Karma</label></th>
+        <td><input id="karma-points" max="50" min="0" type="number" readonly value="25"></td>
+    </tr>
+    <tr>
+        <th><label for="skill-group-points">Skill group</label></th>
+        <td><input id="skill-group-points" max="10" min="0" type="number" readonly></td>
+    </tr>
+    <tr>
+        <th><label for="skill-points">Skills</label></th>
+        <td><input id="skill-points" max="46" min="0" type="number" readonly></td>
+    </tr>
+    <tr>
+        <th><label for="money">Money</label></th>
+        <td><input id="money" max="450000" min="0" type="number" readonly></td>
+    </tr>
+</table>
+
 <table class="priority">
     <thead>
         <tr>
@@ -173,16 +200,12 @@
             <td><input id="body" max="6" min="1" name="body" step="1" type="number"></td>
             <th><label for="essence">Essence</label></th>
             <td><input id="essence" max="6" readonly value="6" tabindex="-1" type="number"></td>
-            <th><label for="special-points">Special points</label></th>
-            <td><input id="special-points" max="9" min="0" name="special-points" readonly type="number"></td>
         </tr>
         <tr>
             <th><label for="agility">Agility</label></th>
             <td><input id="agility" max="6" min="1" name="agility" step="1" type="number"></td>
             <th><label for="magic">Magic</label></th>
             <td><input id="magic" max="6" min="0" name="magic" step="1" type="number"></td>
-            <th><label for="attribute-points">Attribute points</label></th>
-            <td><input id="attribute-points" max="24" min="12" name="attribute-points" readonly type="number"></td>
         </tr>
         <tr>
             <th><label for="reaction">Reaction</label></th>

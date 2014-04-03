@@ -58,6 +58,14 @@ section, table {
     width: 80%;
 }
 
+.points-to-spend {
+    border: 1px solid #000000;
+    position: fixed;
+    right: 1%;
+    top: 1%;
+    width: 17%;
+}
+
 .meta-information {
     white-space: nowrap;
 }

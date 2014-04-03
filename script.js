@@ -84,6 +84,10 @@ sr.handlePriorityClick = function handlePriorityClick(e) {
     sr.changeColumnSelection(cell);
     if (0 === cell.id.indexOf('attributes-')) {
         sr.updateAttributes(cell);
+    } else if (0 === cell.id.indexOf('skills-')) {
+        sr.updateSkills(cell);
+    } else if (0 === cell.id.indexOf('resources-')) {
+        sr.updateResources(cell);
     }
 };
 
@@ -142,6 +146,41 @@ sr.updateAttributes = function updateAttributes(cell) {
 };
 
 /**
+ * Update a character's available skill points.
+ * @param {Object} cell
+ */
+sr.updateSkills = function updateSkills(cell) {
+    var priority = cell.id.slice(-1);
+    var skills = {
+        a: { skills: 46, group: 10 },
+        b: { skills: 36, group: 5 },
+        c: { skills: 28, group: 2 },
+        d: { skills: 22, group: 0 },
+        e: { skills: 18, group: 0 }
+    };
+
+    $('#skill-group-points').val(skills[priority]['group']);
+    $('#skill-points').val(skills[priority]['skills']);
+};
+
+/**
+ * Update a character's available resources when they choose a resource
+ * priority.
+ * @param {Object} cell
+ */
+sr.updateResources = function updateResources(cell) {
+    var priority = cell.id.slice(-1);
+    var resources = {
+        a: 450000,
+        b: 275000,
+        c: 140000,
+        d: 50000,
+        e: 6000
+    };
+    $('#money').val(resources[priority]);
+};
+
+/**
  * Update the number of attribute points a character has to spend.
  */
 sr.updateAttributePoints = function updateAttributePoints() {
@@ -157,7 +196,9 @@ sr.updateAttributePoints = function updateAttributePoints() {
     var attributeEl;
     attributes.forEach(function(attribute) {
         attributeEl = $('#' + attribute)[0];
-        points -= parseInt(attributeEl.value, 10);
+        if (attributeEl.value) {
+            points -= parseInt(attributeEl.value, 10);
+        }
     });
     pointsEl.value = points;
 };
@@ -483,6 +524,7 @@ sr.updateKarmaForQualities = function updateKarmaForQualities(e) {
         'weak-immune-system': -10
     };
     var karmaInput = $('#karma')[0];
+    var karmaPointInput = $('#karma-points')[0];
     /** @type {Number} Used to handle checking and unchecking qualities */
     var multiplier = 1;
     if (!e.target.checked) {
@@ -492,6 +534,7 @@ sr.updateKarmaForQualities = function updateKarmaForQualities(e) {
     if (qualities[quality]) {
         karmaInput.value = parseInt(karmaInput.value, 10)
             - qualities[quality] * multiplier;
+        karmaPointInput.value = karmaInput.value;
     } else {
         window.console.log('error with quality or not implemented');
     }
