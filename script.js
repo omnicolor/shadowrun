@@ -244,6 +244,37 @@ sr.updateRacePriority = function updateRace(e) {
     sr.updateAttributeLimits(race);
     sr.updateSpecialPointTotal(race, priority);
     $('#metatype').val(race);
+    sr.updateQualitiesForRace(race);
+};
+
+/**
+ * Given the race that the user chose, allow or disallow qualities.
+ * @param {string} race
+ */
+sr.updateQualitiesForRace = function updateQualitiesForRace(race) {
+    // Only elves, dwarves, and orks may take the Human Looking quality.
+    if ('elf' === race || 'dwarf' === race || 'ork' === race) {
+        $('#human-looking').prop('disabled', false);
+    } else {
+        $('#human-looking').prop('disabled', true)
+            .prop('checked', false);
+    }
+
+    // Only humans can take the Elf Poser quality.
+    if ('human' === race) {
+        $('#elf-poser').prop('disabled', false);
+    } else {
+        $('#elf-poser').prop('disabled', true)
+            .prop('checked', false);
+    }
+
+    // Only humans and elves may take the Ork Poser quality.
+    if ('human' === race || 'elf' === race) {
+        $('#ork-poser').prop('disabled', false);
+    } else {
+        $('#ork-poser').prop('disabled', true)
+            .prop('checked', false);
+    }
 };
 
 /**
