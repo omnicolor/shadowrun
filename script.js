@@ -66,6 +66,9 @@ sr.setupHandlers = function setupHandlers() {
 
     $('#magic-e').on('click', sr.removeMagic);
     $('input[name="quality[]"]').on('change', sr.updateKarmaForQualities);
+
+    $('#exceptional-attribute').on('change', sr.exceptionalAttribute);
+    $('#lucky').on('change', sr.lucky);
 };
 
 /**
@@ -539,6 +542,14 @@ sr.updateKarmaForQualities = function updateKarmaForQualities(e) {
     } else {
         window.console.log('error with quality or not implemented');
     }
+};
+
+sr.exceptionalAttribute = function exceptionalAttribute(e){
+    $('#lucky').prop('disabled', e.currentTarget.checked);
+};
+
+sr.lucky = function lucky(e){
+    $('#exceptional-attribute').prop('disabled', e.currentTarget.checked);
 };
 
 $(document).ready(sr.setupHandlers);
