@@ -419,6 +419,7 @@ sr.updateAttributeLimits = function updateAttributeLimits(race) {
         if (attribute !== 'edge') {
             sr.freeAttributePoints += raceLimits[attribute]['min'];
         }
+        $('#' + attribute + '-max')[0].value = raceLimits[attribute]['max'];
         $(input).trigger('change');
     }
     input = $('#edge').val(raceLimits['edge']['min']);
