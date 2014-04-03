@@ -122,10 +122,10 @@
 
 <section class="left">
     <h1 class="legend">Personal data</h1>
-    <table>
+    <table class="meta-information">
         <tr>
             <th><label for="name">Name</label></td>
-            <td><input id="name" name="name"></td>
+            <td colspan="7"><input id="name" name="name"></td>
         </tr>
         <tr>
             <th><label for="metatype">Metatype</label></th>
@@ -135,7 +135,7 @@
         </tr>
         <tr>
             <th><label for="age">Age</label></th>
-            <td><input id="age" maxlength="3" name="age" type="number"></td>
+            <td><input id="age" max="150" min="0" name="age" step="1" type="number"></td>
             <th><label>Sex</label></th>
             <td>
                 <input id="sex-male" name="sex" type="radio" value="m">
@@ -144,23 +144,23 @@
                 <label for="sex-female">Female</label>
             </td>
             <th><label for="height">Height</label></th>
-            <td><input id="height" max="500" min="60" name="height" type="number">cm</td>
+            <td><input id="height" max="500" min="60" name="height" step="5" type="number">cm</td>
             <th><label for="weight">Weight</label></th>
-            <td><input id="weight" max="670" min="27" name="weight" type="number">kg</td>
+            <td><input id="weight" max="670" min="25" name="weight" step="5" type="number">kg</td>
         </tr>
         <tr>
             <th><label for="street-cred">Street Cred</label></th>
-            <td><input id="street-cred" name="street-cred" value="0"></td>
+            <td><input id="street-cred" max="99" min="0" name="street-cred" step="1" type="number" value="0"></td>
             <th><label for="notoriety">Notoriety</label></th>
-            <td><input id="notoriety" name="notoriety" value="0"></td>
+            <td><input id="notoriety" max="99" min="0" name="notoriety" step="1" type="number" value="0"></td>
             <th><label for="public-awareness">Public Awareness</label></th>
-            <td><input id="public-awareness" name="public-awareness" value="0"></td>
+            <td><input id="public-awareness" max="99" min="0" name="public-awareness" step="1" type="number" value="0"></td>
         </tr>
         <tr>
             <th><label for="karma">Karma</label></th>
-            <td><input id="karma" name="karma" type="number" value="25"></td>
+            <td><input id="karma" max="999" min="0" name="karma" type="number" step="1" value="25"></td>
             <th><label for="total-karma">Total Karma</label></th>
-            <td><input id="total-karma" name="total-karma" type="number"></td>
+            <td><input id="total-karma" max="999" min="0" name="total-karma" step="1" type="number" value="0"></td>
         </tr>
     </table>
 </section>

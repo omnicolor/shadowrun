@@ -53,3 +53,11 @@ input[readonly] {
 th {
     text-align: left;
 }
+
+section, table {
+    width: 80%;
+}
+
+.meta-information {
+    white-space: nowrap;
+}
