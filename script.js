@@ -65,6 +65,7 @@ sr.setupHandlers = function setupHandlers() {
     $('input[name="race"]').on('change', sr.updateRacePriority);
 
     $('#magic-e').on('click', sr.removeMagic);
+    $('input[name="quality[]"]').on('change', sr.updateKarmaForQualities);
 };
 
 /**
@@ -382,6 +383,87 @@ sr.removeMagic = function removeMagic() {
     $('#spirit-affinity').prop('disabled', 'disabled');
     $('#astral-beacon').prop('disabled', 'disabled');
     $('#spirit-bane').prop('disabled', 'disabled');
+};
+
+/**
+ * When a user selects a quality, update their karma.
+ */
+sr.updateKarmaForQualities = function updateKarmaForQualities(e) {
+    var quality = e.target.id;
+    var qualities = {
+        'ambidextrous': 4,
+        'analytical-mind': 5,
+        'apititude': 14,
+        'astral-chameleon': 10,
+        'bilingual': 5,
+        'blandness': 8,
+        'catlike': 7,
+        'codeslinger': 10,
+        'double-jointed': 6,
+        'exceptional-attribute': 14,
+        'first-impression': 11,
+        //'focused-concentration':
+        'gearhead': 11,
+        'guts': 10,
+        //'high-pain-tolerance':
+        'home-ground': 10,
+        'human-looking': 6,
+        //'indomitable':
+        'juryrigger': 10,
+        'lucky': 12,
+        //'magical-resistance':
+        'mentor-spirit': 5,
+        'natural-athlete': 7,
+        'natural-hardening': 10,
+        //'natural-immunity':
+        'photographic-memory': 6,
+        'quick-healer': 3,
+        //'resistance':
+        'spirit-affinity': 7,
+        'toughness': 9,
+        //'will-to-live':
+        //'addiction':
+        //'allergy':
+        'astral-beacon': -10,
+        'bad-luck': -12,
+        'bad-rep': -7,
+        'code-of-honor': -15,
+        'codeblock': -10,
+        'combat-paralysis': -12,
+        //'dependents':
+        'distinctive-style': -5,
+        'elf-poser': -6,
+        //'gremlins':
+        'incompetent': -5,
+        //'insomnia':
+        'loss-of-confidence': -10,
+        'low-pain-tolerance': -9,
+        'ork-poser': -6,
+        //'prejudiced':
+        'scorched': -10,
+        'sensitive-system': -12,
+        'simsense-vertigo': -5,
+        //'sinner':
+        'social-stress': -8,
+        'spirit-bane': -7,
+        'uncouth': -14,
+        'uneducated': -8,
+        'unsteady-hands': -7,
+        'weak-immune-system': -10
+    };
+    var karmaInput = $('#karma')[0];
+    /** @type {Number} Used to handle checking and unchecking qualities */
+    var multiplier = 1;
+    if (!e.target.checked) {
+        multiplier = -1;
+    }
+
+    if (qualities[quality]) {
+        karmaInput.value = parseInt(karmaInput.value, 10)
+            - qualities[quality] * multiplier;
+    } else {
+        window.console.log('error with quality or not implemented');
+    }
 };
 
 $(document).ready(sr.setupHandlers);
