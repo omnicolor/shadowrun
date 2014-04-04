@@ -151,7 +151,7 @@
     <h1 class="legend">Personal data</h1>
     <table class="meta-information">
         <tr>
-            <th><label for="name">Name</label></td>
+            <th><label for="name">Name</label></th>
             <td colspan="7"><input id="name" name="name"></td>
         </tr>
         <tr>
@@ -159,6 +159,7 @@
             <td><input id="metatype" name="metatype" readonly></td>
             <th><label for="ethnicity">Ethnicity</label></th>
             <td><input id="ethnicity" name="ethnicity"></td>
+            <td colspan="4"></td>
         </tr>
         <tr>
             <th><label for="age">Age</label></th>
@@ -182,12 +183,14 @@
             <td><input id="notoriety" max="99" min="0" name="notoriety" step="1" type="number" value="0"></td>
             <th><label for="public-awareness">Public Awareness</label></th>
             <td><input id="public-awareness" max="99" min="0" name="public-awareness" step="1" type="number" value="0"></td>
+            <td colspan="2"></td>
         </tr>
         <tr>
             <th><label for="karma">Karma</label></th>
             <td><input id="karma" max="999" min="0" name="karma" type="number" step="1" value="25"></td>
             <th><label for="total-karma">Total Karma</label></th>
             <td><input id="total-karma" max="999" min="0" name="total-karma" step="1" type="number" value="0"></td>
+            <td colspan="4"></td>
         </tr>
     </table>
 </section>
@@ -205,10 +208,16 @@
             <th><label for="agility">Agility</label></th>
             <td><input id="agility" max="6" min="1" name="agility" step="1" type="number">/<input id="agility-max" readonly></td>
             <!-- Enable toggle of magic/resonance depending on what is selected -->
-            <th><label for="magic">Magic</label></th>
-            <td><input id="magic" max="6" min="0" name="magic" step="1" type="number">/<input id="magic-max" readonly></td>
-            <th hidden><label for="resonance">Resonance</label></th>
-            <td hidden><input id="resonance" max="6" min="0" name="magic" step="1" type="number">/<input id="resonance-max" readonly></td>
+            <th>
+                <label for="magic">Magic</label>
+                <label for="resonance" hidden id="resonance-label">Resonance</label>
+            </th>
+            <td>
+                <input id="magic" max="6" min="0" name="magic" step="1" type="number">
+                <input hidden id="resonance" max="6" min="0" name="magic" step="1" type="number">/
+                <input id="magic-max" readonly>
+                <input hidden id="resonance-max" readonly>
+            </td>
         </tr>
         <tr>
             <th><label for="reaction">Reaction</label></th>
@@ -328,7 +337,7 @@
                 <td>7</td>
             </tr>
             <tr>
-                <td title="This character blends into a crowd; he's seldom noticed and easily forgotten. He is unremarkable in every aspect of physical appearance. Anyone attempting to describe the character cannot come up with anything more precise than "average height, average build, average hair, etc."
+                <td title="This character blends into a crowd; he's seldom noticed and easily forgotten. He is unremarkable in every aspect of physical appearance. Anyone attempting to describe the character cannot come up with anything more precise than &quot;average height, average build, average hair, etc.&quot;
 
 Increase the threshold for anyone to recall specific details about the character by 1. This means a Memory Test with a difficulty of Average (threshold of 2) becomes a Hard test (threshold of 3).
 
@@ -618,6 +627,7 @@ damage tracks.">
                     <label for="spirit-affinity">Spirit Affinity</label>
                 </td>
                 <td>7</td>
+                <td colspan="2"></td>
             </tr>
             <tr>
                 <td title="Characters with the Toughness quality shrug off damage more easily than others. Such characters gain a +1 dice pool modifier to their Body when making Damage
@@ -626,6 +636,7 @@ Resistance tests.">
                     <label for="toughness">Toughness</label>
                 </td>
                 <td>9</td>
+                <td colspan="2"></td>
             </tr>
             <tr>
                 <td title="For each rating point in Will to Live, the character gains 1 additional Damage Overflow Box (p. 101). These additional boxes only allow the character to sustain additional damage before dying; they do not raise the threshold at which the character becomes unconscious or incapacitated, nor do they affect modifiers from the damage the character has taken.">
