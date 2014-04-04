@@ -37,6 +37,67 @@ sr.freeAttributePoints = 0;
 sr.attributePoints = 0;
 
 /**
+ * @type {{dwarf: {agility: {max: number, min: number}, body: {max: number, min: number}, charisma: {max: number, min: number}, edge: {max: number, min: number}, intuition: {max: number, min: number}, logic: {max: number, min: number}, reaction: {max: number, min: number}, strength: {max: number, min: number}, willpower: {max: number, min: number}}, elf: {agility: {max: number, min: number}, body: {max: number, min: number}, charisma: {max: number, min: number}, edge: {max: number, min: number}, intuition: {max: number, min: number}, logic: {max: number, min: number}, reaction: {max: number, min: number}, strength: {max: number, min: number}, willpower: {max: number, min: number}}, human: {agility: {max: number, min: number}, body: {max: number, min: number}, charisma: {max: number, min: number}, edge: {max: number, min: number}, intuition: {max: number, min: number}, logic: {max: number, min: number}, reaction: {max: number, min: number}, strength: {max: number, min: number}, willpower: {max: number, min: number}}, ork: {agility: {max: number, min: number}, body: {max: number, min: number}, charisma: {max: number, min: number}, edge: {max: number, min: number}, intuition: {max: number, min: number}, logic: {max: number, min: number}, reaction: {max: number, min: number}, strength: {max: number, min: number}, willpower: {max: number, min: number}}, troll: {agility: {max: number, min: number}, body: {max: number, min: number}, charisma: {max: number, min: number}, edge: {max: number, min: number}, intuition: {max: number, min: number}, logic: {max: number, min: number}, reaction: {max: number, min: number}, strength: {max: number, min: number}, willpower: {max: number, min: number}}}}
+ */
+sr.metatypeAttributeLimits = {
+    dwarf: {
+        agility: { max: 6, min: 1 },
+        body: { max: 8, min: 3 },
+        charisma: { max: 6, min: 1 },
+        edge: { max: 6, min: 1 },
+        intuition: { max: 6, min: 1 },
+        logic: { max: 6, min: 1 },
+        reaction: { max: 5, min: 1 },
+        strength: { max: 8, min: 3 },
+        willpower: { max: 7, min: 2 }
+    },
+    elf: {
+        agility: { max: 7, min: 2 },
+        body: { max: 6, min: 1 },
+        charisma: { max: 8, min: 3 },
+        edge: { max: 6, min: 1 },
+        intuition: { max: 6, min: 1 },
+        logic: { max: 6, min: 1 },
+        reaction: { max: 6, min: 1 },
+        strength: { max: 6, min: 1 },
+        willpower: { max: 6, min: 1 }
+    },
+    human: {
+        agility: { max: 6, min: 1 },
+        body: { max: 6, min: 1 },
+        charisma: { max: 6, min: 1 },
+        edge: { max: 7, min: 2 },
+        intuition: { max: 6, min: 1 },
+        logic: { max: 6, min: 1 },
+        reaction: { max: 6, min: 1 },
+        strength: { max: 6, min: 1 },
+        willpower: { max: 6, min: 1 }
+    },
+    ork: {
+        agility: { max: 6, min: 1 },
+        body: { max: 9, min: 4 },
+        charisma: { max: 5, min: 1 },
+        edge: { max: 6, min: 1 },
+        intuition: { max: 6, min: 1 },
+        logic: { max: 5, min: 1 },
+        reaction: { max: 6, min: 1 },
+        strength: { max: 8, min: 3 },
+        willpower: { max: 6, min: 1 }
+    },
+    troll: {
+        agility: { max: 5, min: 1 },
+        body: { max: 10, min: 5 },
+        charisma: { max: 4, min: 1 },
+        edge: { max: 6, min: 1 },
+        intuition: { max: 5, min: 1 },
+        logic: { max: 5, min: 1 },
+        reaction: { max: 6, min: 1 },
+        strength: { max: 10, min: 5 },
+        willpower: { max: 6, min: 1 }
+    }
+};
+
+/**
  * Set up all of the required handlers.
  */
 sr.setupHandlers = function setupHandlers() {
@@ -69,6 +130,7 @@ sr.setupHandlers = function setupHandlers() {
 
     $('#exceptional-attribute').on('change', sr.exceptionalAttribute);
     $('#lucky').on('change', sr.lucky);
+    $('#exceptional-attribute-select').on('change', sr.exceptionalAttributeSelect);
 };
 
 /**
@@ -350,82 +412,25 @@ sr.updateSpecialPoints = function updateSpecialPoints(e) {
 
 /**
  * Update the min and max values for attributes based on a chosen race.
- * @param {string} race Race the user chose
+ * @param {string} metatype Metatype the user chose
  */
-sr.updateAttributeLimits = function updateAttributeLimits(race) {
-    var limits = {
-        dwarf: {
-            agility: { max: 6, min: 1 },
-            body: { max: 8, min: 3 },
-            charisma: { max: 6, min: 1 },
-            edge: { max: 6, min: 1 },
-            intuition: { max: 6, min: 1 },
-            logic: { max: 6, min: 1 },
-            reaction: { max: 5, min: 1 },
-            strength: { max: 8, min: 3 },
-            willpower: { max: 7, min: 2 }
-        },
-        elf: {
-            agility: { max: 7, min: 2 },
-            body: { max: 6, min: 1 },
-            charisma: { max: 8, min: 3 },
-            edge: { max: 6, min: 1 },
-            intuition: { max: 6, min: 1 },
-            logic: { max: 6, min: 1 },
-            reaction: { max: 6, min: 1 },
-            strength: { max: 6, min: 1 },
-            willpower: { max: 6, min: 1 }
-        },
-        human: {
-            agility: { max: 6, min: 1 },
-            body: { max: 6, min: 1 },
-            charisma: { max: 6, min: 1 },
-            edge: { max: 7, min: 2 },
-            intuition: { max: 6, min: 1 },
-            logic: { max: 6, min: 1 },
-            reaction: { max: 6, min: 1 },
-            strength: { max: 6, min: 1 },
-            willpower: { max: 6, min: 1 }
-        },
-        ork: {
-            agility: { max: 6, min: 1 },
-            body: { max: 9, min: 4 },
-            charisma: { max: 5, min: 1 },
-            edge: { max: 6, min: 1 },
-            intuition: { max: 6, min: 1 },
-            logic: { max: 5, min: 1 },
-            reaction: { max: 6, min: 1 },
-            strength: { max: 8, min: 3 },
-            willpower: { max: 6, min: 1 }
-        },
-        troll: {
-            agility: { max: 5, min: 1 },
-            body: { max: 10, min: 5 },
-            charisma: { max: 4, min: 1 },
-            edge: { max: 6, min: 1 },
-            intuition: { max: 5, min: 1 },
-            logic: { max: 5, min: 1 },
-            reaction: { max: 6, min: 1 },
-            strength: { max: 10, min: 5 },
-            willpower: { max: 6, min: 1 }
-        }
-    };
-    var raceLimits = limits[race];
+sr.updateAttributeLimits = function updateAttributeLimits(metatype) {
+    var attributeLimits = sr.metatypeAttributeLimits[metatype];
     var input;
     sr.freeAttributePoints = 0;
 
-    for (attribute in raceLimits) {
+    for (attribute in attributeLimits) {
         input = $('#' + attribute)[0];
-        input.max = raceLimits[attribute]['max'];
-        input.min = raceLimits[attribute]['min'];
-        input.value = raceLimits[attribute]['min'];
+        input.max = attributeLimits[attribute]['max'];
+        input.min = attributeLimits[attribute]['min'];
+        input.value = attributeLimits[attribute]['min'];
         if (attribute !== 'edge') {
-            sr.freeAttributePoints += raceLimits[attribute]['min'];
+            sr.freeAttributePoints += attributeLimits[attribute]['min'];
         }
-        $('#' + attribute + '-max')[0].value = raceLimits[attribute]['max'];
+        $('#' + attribute + '-max')[0].value = attributeLimits[attribute]['max'];
         $(input).trigger('change');
     }
-    input = $('#edge').val(raceLimits['edge']['min']);
+    input = $('#edge').val(attributeLimits['edge']['min']);
 };
 
 /**
@@ -544,11 +549,73 @@ sr.updateKarmaForQualities = function updateKarmaForQualities(e) {
     }
 };
 
-sr.exceptionalAttribute = function exceptionalAttribute(e){
+/**
+ * Handle a toggle of the exceptional attribute quality
+ *
+ * @param e {Event} The event object
+ */
+sr.exceptionalAttribute = function exceptionalAttribute(e) {
+    var metatype = $('#metatype').val();
+    var exceptionalAttributeSelect = $('#exceptional-attribute-select');
+
     $('#lucky').prop('disabled', e.currentTarget.checked);
+    exceptionalAttributeSelect.prop('hidden', !e.currentTarget.checked);
+
+    if (e.currentTarget.checked) {
+        var attributeOptions = [
+            {"value": "none", "text": "Select One"},
+            {"value": "body", "text": "Body"},
+            {"value": "agility", "text": "Agility"},
+            {"value": "reaction", "text": "Reaction"},
+            {"value": "strength", "text": "Strength"},
+            {"value": "willpower", "text": "Willpower"},
+            {"value": "logic", "text": "Logic"},
+            {"value": "intuition", "text": "Intuition"},
+            {"value": "charisma", "text": "Charisma"}
+        ];
+
+
+        //TODO: add this when we have a way to check if magic is selected
+//        if (is_magic_guy) {
+//        attributeOptions.push({"value": "magic", "text": "Magic"});
+//        }
+//        if (is_matrix_guy) {
+//        attributeOptions.push({"value": "resonance", "text": "Resonance"});
+//        }
+
+        $.each(attributeOptions, function (key, data) {
+            exceptionalAttributeSelect.append($("<option></option>")
+                .attr("value", data["value"])
+                .text(data["text"]));
+        });
+    } else {
+        exceptionalAttributeSelect.empty();
+        sr.updateAttributeLimits(metatype);
+    }
+};
+
+/**
+ * Handle a change of the selected exceptional attribute
+ *
+ * @param e {Event} The event object
+ */
+sr.exceptionalAttributeSelect = function exceptionalAttributeSelect(e) {
+    var selectedAttribute = $("#exceptional-attribute-select").find("option:selected").val();
+    var metatype = $('#metatype').val();
+
+    //Reset our limits before we change them
+    sr.updateAttributeLimits(metatype);
+
+    if (selectedAttribute != 'none') {
+        var maxAttributeLimit = sr.metatypeAttributeLimits[metatype][selectedAttribute]['max'];
+        $('#' + selectedAttribute).attr('max', maxAttributeLimit + 1);
+        $('#' + selectedAttribute + '-max').val(maxAttributeLimit + 1);
+    }
 };
 
 sr.lucky = function lucky(e){
+    var metatype = $('#metatype').val();
+
     $('#exceptional-attribute').prop('disabled', e.currentTarget.checked);
 };
 
