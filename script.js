@@ -623,10 +623,23 @@ sr.exceptionalAttributeSelect = function exceptionalAttributeSelect(e) {
     }
 };
 
+/**
+ *  Handle a toggle of the lucky quality.
+ *  
+ * @param e {Event} The event object
+ */
 sr.lucky = function lucky(e){
     var metatype = $('#metatype').val();
+    var maxAttributeLimit = sr.metatypeAttributeLimits[metatype]['edge']['max'];
 
     $('#exceptional-attribute').prop('disabled', e.currentTarget.checked);
+
+    if (e.currentTarget.checked) {
+        maxAttributeLimit++;
+    }
+
+    $('#edge').attr('max', maxAttributeLimit);
+    $('#edge-max').val(maxAttributeLimit);
 };
 
 $(document).ready(sr.setupHandlers);
