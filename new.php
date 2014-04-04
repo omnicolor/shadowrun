@@ -204,8 +204,11 @@
         <tr>
             <th><label for="agility">Agility</label></th>
             <td><input id="agility" max="6" min="1" name="agility" step="1" type="number">/<input id="agility-max" readonly></td>
+            <!-- Enable toggle of magic/resonance depending on what is selected -->
             <th><label for="magic">Magic</label></th>
-            <td><input id="magic" max="6" min="0" name="magic" step="1" type="number"></td>
+            <td><input id="magic" max="6" min="0" name="magic" step="1" type="number">/<input id="magic-max" readonly></td>
+            <th hidden><label for="resonance">Resonance</label></th>
+            <td hidden><input id="resonance" max="6" min="0" name="magic" step="1" type="number">/<input id="resonance-max" readonly></td>
         </tr>
         <tr>
             <th><label for="reaction">Reaction</label></th>
@@ -382,6 +385,7 @@ In certain circumstances and specific situations, the gamemaster may determine t
                 <td title="The Exceptional Atribute quality is how you get to be the charismatic troll, or the agile dwarf. It allows you to possess one attribute at a level one point above the metatype maximum limit. For example, an ork character with the Exceptional Attribute quality for Strength could take his Strength attribute up to 10 before augmentations are applied, instead of the normal limit of 9. Exceptional Attribute also applies toward Special Attributes such as Magic and Resonance. Edge cannot affected by the Exceptional Attribute (Edge is raised by another quality called Lucky). A character may only take Exceptional Attribute once, and only with the gamemaster’s approval.">
                     <input id="exceptional-attribute" name="quality[]" type="checkbox" value="exceptional-attribute">
                     <label for="exceptional-attribute">Exceptional Attribute</label>
+                    <select id="exceptional-attribute-select" hidden></select>
                 </td>
                 <td>14</td>
                 <td title="A character with the Distinctive Style quality has at least one aspect of his appearance, mannerism, or personality that makes him inconveniently memorable. Choices for Distinctive Style include, but are by no means limited to: tattoos that cannot be easily concealed, an accent or atypical manner of speaking, bizarre fashion choices, scars, gang or prison signs, flashy custom augmentations, or non-metahuman modifications like a tail. Note that what’s distinctive in one culture or location may not be in another.">
