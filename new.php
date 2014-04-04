@@ -204,8 +204,11 @@
         <tr>
             <th><label for="agility">Agility</label></th>
             <td><input id="agility" max="6" min="1" name="agility" step="1" type="number">/<input id="agility-max" readonly></td>
+            <!-- Enable toggle of magic/resonance depending on what is selected -->
             <th><label for="magic">Magic</label></th>
-            <td><input id="magic" max="6" min="0" name="magic" step="1" type="number"></td>
+            <td><input id="magic" max="6" min="0" name="magic" step="1" type="number">/<input id="magic-max" readonly></td>
+            <th hidden><label for="resonance">Resonance</label></th>
+            <td hidden><input id="resonance" max="6" min="0" name="magic" step="1" type="number">/<input id="resonance-max" readonly></td>
         </tr>
         <tr>
             <th><label for="reaction">Reaction</label></th>

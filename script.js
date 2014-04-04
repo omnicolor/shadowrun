@@ -49,7 +49,9 @@ sr.metatypeAttributeLimits = {
         logic: { max: 6, min: 1 },
         reaction: { max: 5, min: 1 },
         strength: { max: 8, min: 3 },
-        willpower: { max: 7, min: 2 }
+        willpower: { max: 7, min: 2 },
+        magic: { max: 6, min: 1 },
+        resonance: { max: 6, min: 1 }
     },
     elf: {
         agility: { max: 7, min: 2 },
@@ -60,7 +62,9 @@ sr.metatypeAttributeLimits = {
         logic: { max: 6, min: 1 },
         reaction: { max: 6, min: 1 },
         strength: { max: 6, min: 1 },
-        willpower: { max: 6, min: 1 }
+        willpower: { max: 6, min: 1 },
+        magic: { max: 6, min: 1 },
+        resonance: { max: 6, min: 1 }
     },
     human: {
         agility: { max: 6, min: 1 },
@@ -71,7 +75,9 @@ sr.metatypeAttributeLimits = {
         logic: { max: 6, min: 1 },
         reaction: { max: 6, min: 1 },
         strength: { max: 6, min: 1 },
-        willpower: { max: 6, min: 1 }
+        willpower: { max: 6, min: 1 },
+        magic: { max: 6, min: 1 },
+        resonance: { max: 6, min: 1 }
     },
     ork: {
         agility: { max: 6, min: 1 },
@@ -82,7 +88,9 @@ sr.metatypeAttributeLimits = {
         logic: { max: 5, min: 1 },
         reaction: { max: 6, min: 1 },
         strength: { max: 8, min: 3 },
-        willpower: { max: 6, min: 1 }
+        willpower: { max: 6, min: 1 },
+        magic: { max: 6, min: 1 },
+        resonance: { max: 6, min: 1 }
     },
     troll: {
         agility: { max: 5, min: 1 },
@@ -93,7 +101,9 @@ sr.metatypeAttributeLimits = {
         logic: { max: 5, min: 1 },
         reaction: { max: 6, min: 1 },
         strength: { max: 10, min: 5 },
-        willpower: { max: 6, min: 1 }
+        willpower: { max: 6, min: 1 },
+        magic: { max: 6, min: 1 },
+        resonance: { max: 6, min: 1 }
     }
 };
 
