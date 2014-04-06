@@ -462,10 +462,15 @@ those skills.">
             </tr>
             <tr>
                 <td title="High Pain Tolerance lets a character keep delivering the pain even if she’s had plenty piled on her own head.  A character with High Pain Tolerance can ignore one box of damage per rating point of this quality when calculating wound modifiers (see Wound Modifiers, p.  169). So a character with this quality at Rating 2 can take 4 boxes of damage but carry on without wound modifiers as if she only had 2 boxes of damage. The –1 wound modifier would then kick in when the character takes her fifth box in damage. This quality may not be used with the Pain Resistance adept power, pain editor bioware, or damage compensator bioware.">
-                    <input id="high-pain" name="quality[]" type="checkbox" value="high-pain">
-                    <label for="high-pain">High Pain Tolerance</label>
+                    <input id="high-pain-tolerance" name="quality[]" type="checkbox" value="high-pain">
+                    <label for="high-pain-tolerance">High Pain Tolerance</label>
+                    <select id="high-pain-tolerance-select" hidden>
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
                 </td>
-                <td>7</td>
+                <td>7-21</td>
                 <td title="The Loss of Confidence quality means something has caused the character to lose confidence in himself and one of his abilities. Though a skilled decker, he failed to hack into a Stuffer Shack grid, or despite high Agility, he glitched an easy Climbing Test and fell into a dumpster—whatever the reason, he now doubts himself and his abilities. In tests involving the affected skill, the character suffers a –2 dice pool modifier. If the character has a specialization with the skill, the character cannot use that specialization while suffering a loss of confidence.  The skill chosen for the character to have a Loss of Confidence must be one that the character prides himself in and has invested in building. Only skills with a rating 4 or higher may suffer the Loss of Confidence quality. Edge may not be used for tests involving this skill when the character is suffering Loss of Confidence.">
                     <input id="loss-of-confidence" name="quality[]" type="checkbox" value="loss-of-confidence">
                     <label for="loss-of-confidence">Loss Of Confidence</label>

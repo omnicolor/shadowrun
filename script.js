@@ -193,6 +193,18 @@ sr.qualities = {
     'guts': {
         "cost": 10
     },
+    'high-pain-tolerance': {
+        "cost": function () {
+            var baseCost = 7;
+            var input = $('#high-pain-tolerance')[0];
+            var select = $('#high-pain-tolerance-select')[0];
+            var multiplier = parseInt(select.value, 10);
+
+            select.hidden = !input.checked;
+
+            return (baseCost * multiplier);
+        }
+    },
     //'high-pain-tolerance': //7 karma (max 3)
 //        'home-ground': 10, //10 karma, can take each type once, should add description to notes
     //  Astral Acclimation
@@ -448,6 +460,16 @@ sr.setupHandlers = function setupHandlers() {
 
         if (sr.selectedQualties['indomitable']) {
             sr.selectedQualties['indomitable'] = (8 * multiplier);
+        }
+        sr.updateQualities();
+    });
+
+    $('#high-pain-tolerance-select').on('change', function (e) {
+        var select = $('#high-pain-tolerance-select')[0];
+        var multiplier = parseInt(select.value, 10);
+
+        if (sr.selectedQualties['high-pain-tolerance']) {
+            sr.selectedQualties['high-pain-tolerance'] = (7 * multiplier);
         }
         sr.updateQualities();
     });
