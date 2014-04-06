@@ -540,8 +540,14 @@ damage tracks.">
             </tr>
             <tr>
                 <td title="This is the wonderful ability to potentially make a Fire- ball bounce away. For every 6 Karma spent on Magic Resistance, a character receives 1 additional die for Spell Resistance Tests. The Magical Resistance quality, however, is always “on”—the character cannot lower it to receive beneficial spells such as Heal. A character with Magic Resistance cannot take part in spells that require a voluntary subject; such spells automatically fail when used on magic-resistant characters.">
-                    <input id="magic-resistance" name="quality[]" type="checkbox" value="magic-resistance">
-                    <label for="magic-resistance">Magic Resistance</label>
+                    <input id="magical-resistance" name="quality[]" type="checkbox" value="magic-resistance">
+                    <label for="magical-resistance">Magic Resistance</label>
+                    <select id="magical-resistance-select" hidden>
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
                 </td>
                 <td>6-24</td>
                 <td title="Characters who suffer from Simsense Vertigo experience feelings of disorientation whenever they work with augmented reality, virtual reality, or simsense (including smartlinks, simrigs, and image links). Such characters receive a –2 dice pool modifier to all tests when interacting with AR, VR, or simsense.">
@@ -653,6 +659,11 @@ Resistance tests.">
                 <td title="For each rating point in Will to Live, the character gains 1 additional Damage Overflow Box (p. 101). These additional boxes only allow the character to sustain additional damage before dying; they do not raise the threshold at which the character becomes unconscious or incapacitated, nor do they affect modifiers from the damage the character has taken.">
                     <input id="will-to-live" name="quality[]" type="checkbox" value="will-to-live">
                     <label for="will-to-live">Will To Live</label>
+                    <select id="will-to-live-select" hidden>
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
                 </td>
                 <td>3-9</td>
             </tr>

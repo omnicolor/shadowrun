@@ -178,11 +178,11 @@ sr.qualities = {
     'focused-concentration': {
         "cost": function () {
             var baseCost = 4;
-            var focusedConcentrationInput = $('#focused-concentration')[0];
-            var focusedConcentrationSelect = $('#focused-concentration-select')[0];
-            var multiplier = parseInt(focusedConcentrationSelect.value, 10);
+            var input = $('#focused-concentration')[0];
+            var select = $('#focused-concentration-select')[0];
+            var multiplier = parseInt(select.value, 10);
 
-            focusedConcentrationSelect.hidden = !focusedConcentrationInput.checked;
+            select.hidden = !input.checked;
 
             return (baseCost * multiplier);
         }
@@ -207,11 +207,11 @@ sr.qualities = {
     'indomitable': {
         "cost": function () {
             var baseCost = 8;
-            var indomitableInput = $('#indomitable')[0];
-            var indomitableSelect = $('#indomitable-select')[0];
-            var multiplier = parseInt(indomitableSelect.value, 10);
+            var input = $('#indomitable')[0];
+            var select = $('#indomitable-select')[0];
+            var multiplier = parseInt(select.value, 10);
 
-            indomitableSelect.hidden = !indomitableInput.checked;
+            select.hidden = !input.checked;
 
             return (baseCost * multiplier);
         }
@@ -246,7 +246,18 @@ sr.qualities = {
             return 12;
         }
     },
-    //'magical-resistance': //5 karma (max 4)
+    'magical-resistance': {
+        "cost": function () {
+            var baseCost = 6;
+            var input = $('#magical-resistance')[0];
+            var select = $('#magical-resistance-select')[0];
+            var multiplier = parseInt(select.value, 10);
+
+            select.hidden = !input.checked;
+
+            return (baseCost * multiplier);
+        }
+    },
     'mentor-spirit': {
         "cost": 5
     },
@@ -272,7 +283,18 @@ sr.qualities = {
     'toughness': {
         "cost": 9
     },
-    //'will-to-live': //3 karma (max 3)
+    'will-to-live': {
+        "cost": function () {
+            var baseCost = 3;
+            var input = $('#will-to-live')[0];
+            var select = $('#will-to-live-select')[0];
+            var multiplier = parseInt(select.value, 10);
+
+            select.hidden = !input.checked;
+
+            return (baseCost * multiplier);
+        }
+    },
     //'addiction':
     //'allergy':
     'astral-beacon': {
@@ -391,8 +413,8 @@ sr.setupHandlers = function setupHandlers() {
     });
 
     $('#focused-concentration-select').on('change', function (e) {
-        var focusedConcentrationSelect = $('#focused-concentration-select')[0];
-        var multiplier = parseInt(focusedConcentrationSelect.value, 10);
+        var select = $('#focused-concentration-select')[0];
+        var multiplier = parseInt(select.value, 10);
 
         if (sr.selectedQualties['focused-concentration']) {
             sr.selectedQualties['focused-concentration'] = (4 * multiplier);
@@ -400,9 +422,29 @@ sr.setupHandlers = function setupHandlers() {
         sr.updateQualities();
     });
 
+    $('#will-to-live-select').on('change', function (e) {
+        var select = $('#will-to-live-select')[0];
+        var multiplier = parseInt(select.value, 10);
+
+        if (sr.selectedQualties['will-to-live']) {
+            sr.selectedQualties['will-to-live'] = (3 * multiplier);
+        }
+        sr.updateQualities();
+    });
+
+    $('#magical-resistance-select').on('change', function (e) {
+        var select = $('#magical-resistance-select')[0];
+        var multiplier = parseInt(select.value, 10);
+
+        if (sr.selectedQualties['magical-resistance']) {
+            sr.selectedQualties['magical-resistance'] = (6 * multiplier);
+        }
+        sr.updateQualities();
+    });
+
     $('#indomitable-select').on('change', function (e) {
-        var indomitableSelect = $('#indomitable-select')[0];
-        var multiplier = parseInt(indomitableSelect.value, 10);
+        var select = $('#indomitable-select')[0];
+        var multiplier = parseInt(select.value, 10);
 
         if (sr.selectedQualties['indomitable']) {
             sr.selectedQualties['indomitable'] = (8 * multiplier);
