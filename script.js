@@ -36,6 +36,10 @@ sr.freeAttributePoints = 0;
  */
 sr.attributePoints = 0;
 
+sr.karma = 25;
+
+sr.selectedQualties = {};
+
 /**
  * @type {{dwarf: {agility: {max: number, min: number}, body: {max: number, min: number}, charisma: {max: number, min: number}, edge: {max: number, min: number}, intuition: {max: number, min: number}, logic: {max: number, min: number}, reaction: {max: number, min: number}, strength: {max: number, min: number}, willpower: {max: number, min: number}}, elf: {agility: {max: number, min: number}, body: {max: number, min: number}, charisma: {max: number, min: number}, edge: {max: number, min: number}, intuition: {max: number, min: number}, logic: {max: number, min: number}, reaction: {max: number, min: number}, strength: {max: number, min: number}, willpower: {max: number, min: number}}, human: {agility: {max: number, min: number}, body: {max: number, min: number}, charisma: {max: number, min: number}, edge: {max: number, min: number}, intuition: {max: number, min: number}, logic: {max: number, min: number}, reaction: {max: number, min: number}, strength: {max: number, min: number}, willpower: {max: number, min: number}}, ork: {agility: {max: number, min: number}, body: {max: number, min: number}, charisma: {max: number, min: number}, edge: {max: number, min: number}, intuition: {max: number, min: number}, logic: {max: number, min: number}, reaction: {max: number, min: number}, strength: {max: number, min: number}, willpower: {max: number, min: number}}, troll: {agility: {max: number, min: number}, body: {max: number, min: number}, charisma: {max: number, min: number}, edge: {max: number, min: number}, intuition: {max: number, min: number}, logic: {max: number, min: number}, reaction: {max: number, min: number}, strength: {max: number, min: number}, willpower: {max: number, min: number}}}}
  */
@@ -107,6 +111,210 @@ sr.metatypeAttributeLimits = {
     }
 };
 
+sr.qualities = {
+    'ambidextrous': {
+        "cost": 4
+    },
+    'analytical-mind': {
+        "cost": 5
+    },
+    'apititude': {
+        "cost": 14
+    },
+    'astral-chameleon': {
+        "cost": 10
+    },
+    'bilingual': {
+        "cost": 5
+    },
+    'blandness': {
+        "cost": 8
+    },
+    'catlike': {
+        "cost": 7
+    },
+    'codeslinger': {
+        "cost": 10
+    },
+    'double-jointed': {
+        "cost": 6
+    },
+    'exceptional-attribute': {
+        "cost": 14
+    },
+    'first-impression': {
+        "cost": 11
+    },
+    'focused-concentration': {
+        "cost": function () {
+            var baseCost = 4;
+            var focusedConcentrationInput = $('#focused-concentration')[0];
+            var focusedConcentrationSelect = $('#focused-concentration-select')[0];
+            var multiplier = parseInt(focusedConcentrationSelect.value, 10);
+
+            focusedConcentrationSelect.hidden = !focusedConcentrationInput.checked;
+
+            return (baseCost * multiplier);
+        }
+    },
+    'gearhead': {
+        "cost": 11
+    },
+    'guts': {
+        "cost": 10
+    },
+    //'high-pain-tolerance': //7 karma (max 3)
+//        'home-ground': 10, //10 karma, can take each type once, should add description to notes
+    //  Astral Acclimation
+    //  You Know a Guy
+    //  Digital Turf
+    //  The Transporter
+    //  On the Lam
+    //  Street Politics
+    'human-looking': {
+        "cost": 6
+    },
+    'indomitable': {
+        "cost": function () {
+            var baseCost = 8;
+            var indomitableInput = $('#indomitable')[0];
+            var indomitableSelect = $('#indomitable-select')[0];
+            var multiplier = parseInt(indomitableSelect.value, 10);
+
+            indomitableSelect.hidden = !indomitableInput.checked;
+
+            return (baseCost * multiplier);
+        }
+    },
+    'juryrigger': {
+        "cost": 10
+    },
+    'lucky': {
+        "cost": function () {
+            var metatype = $('#metatype')[0].value;
+            var luckyInput = $('#lucky')[0];
+            var edgeInput = $('#edge')[0];
+            var edgeMaxInput = $('#edge-max')[0];
+            var exceptionalAttributeInput = $('#exceptional-attribute')[0];
+
+            if (metatype &&
+                sr.metatypeAttributeLimits[metatype] &&
+                sr.metatypeAttributeLimits[metatype]['edge'] &&
+                sr.metatypeAttributeLimits[metatype]['edge']['max']
+                ) {
+                var maxAttributeLimit = sr.metatypeAttributeLimits[metatype]['edge']['max'];
+
+                exceptionalAttributeInput.disabled = luckyInput.checked;
+                if (luckyInput.checked) {
+                    maxAttributeLimit++;
+                }
+
+                edgeInput.max = maxAttributeLimit;
+                edgeMaxInput.value = maxAttributeLimit;
+            }
+
+            return 12;
+        }
+    },
+    //'magical-resistance': //5 karma (max 4)
+    'mentor-spirit': {
+        "cost": 5
+    },
+    'natural-athlete': {
+        "cost": 7
+    },
+    'natural-hardening': {
+        "cost": 10
+    },
+    //'natural-immunity': //4 karma (single natural disease or toxin) or 10 karma (single, synthetic (artificially created) disease or toxin),
+    'photographic-memory': {
+        "cost": 6
+    },
+    'quick-healer': {
+        "cost": 3
+    },
+//    'resistance': {
+//        "cost": [4,8]
+//    },//4 karma (+1 modifier for pathogens or toxins) or 8 karma (+1 modifier for resisting both)
+    'spirit-affinity': {
+        "cost": 7
+    },
+    'toughness': {
+        "cost": 9
+    },
+    //'will-to-live': //3 karma (max 3)
+    //'addiction':
+    //'allergy':
+    'astral-beacon': {
+        "cost": -10
+    },
+    'bad-luck': {
+        "cost": -12
+    },
+    'bad-rep': {
+        "cost": -7
+    },
+    'code-of-honor': {
+        "cost": -15
+    },
+    'codeblock': {
+        "cost": -10
+    },
+    'combat-paralysis': {
+        "cost": -12
+    },
+    //'dependents':
+    'distinctive-style':{
+        "cost":  -5
+    },
+    'elf-poser': {
+        "cost": -6
+    },
+    //'gremlins':
+    'incompetent': {
+        "cost": -5
+    },
+    //'insomnia':
+    'loss-of-confidence': {
+        "cost": -10
+    },
+    'low-pain-tolerance': {
+        "cost": -9
+    },
+    'ork-poser': {
+        "cost": -6
+    },
+    //'prejudiced':
+    'scorched': {
+        "cost": -10
+    },
+    'sensitive-system': {
+        "cost": -12
+    },
+    'simsense-vertigo': {
+        "cost": -5
+    },
+    //'sinner':
+    'social-stress': {
+        "cost": -8
+    },
+    'spirit-bane': {
+        "cost": -7
+    },
+    'uncouth': {
+        "cost": -14
+    },
+    'uneducated': {
+        "cost": -8
+    },
+    'unsteady-hands': {
+        "cost": -7
+    },
+    'weak-immune-system': {
+        "cost": -10
+    }
+};
+
 /**
  * Set up all of the required handlers.
  */
@@ -136,11 +344,39 @@ sr.setupHandlers = function setupHandlers() {
     $('input[name="race"]').on('change', sr.updateRacePriority);
 
     $('#magic-e').on('click', sr.removeMagic);
-    $('input[name="quality[]"]').on('change', sr.updateKarmaForQualities);
+    $('input[name="quality[]"]').on('change', sr.calculateQualities);
 
     $('#exceptional-attribute').on('change', sr.exceptionalAttribute);
-    $('#lucky').on('change', sr.lucky);
+//    $('#lucky').on('change', sr.lucky);
     $('#exceptional-attribute-select').on('change', sr.exceptionalAttributeSelect);
+
+    $('#focused-concentration-select').on('change', function (e) {
+        var focusedConcentrationSelect = $('#focused-concentration-select')[0];
+        var multiplier = parseInt(focusedConcentrationSelect.value, 10);
+
+        if (sr.selectedQualties['focused-concentration']) {
+            sr.selectedQualties['focused-concentration'] = (4 * multiplier);
+        }
+        sr.updateQualities();
+    });
+
+    $('#indomitable-select').on('change', function (e) {
+        var indomitableSelect = $('#indomitable-select')[0];
+        var multiplier = parseInt(indomitableSelect.value, 10);
+
+        if (sr.selectedQualties['indomitable']) {
+            sr.selectedQualties['indomitable'] = (8 * multiplier);
+        }
+        sr.updateQualities();
+    });
+
+    $('#karma').on('change', function(e) {
+        var karmaPoints = $('#karma-points')[0];
+        var karmaDiff = (parseInt(e.currentTarget.value, 10) - sr.karma);
+        var karmaPointsValue = parseInt(karmaPoints.value, 10);
+        sr.karma += karmaDiff;
+        karmaPoints.value = (karmaPointsValue + karmaDiff);
+    });
 };
 
 /**
@@ -477,88 +713,49 @@ sr.removeMagic = function removeMagic() {
 };
 
 /**
- * When a user selects a quality, update their karma.
+ * When a user selects a quality update their karma
+ *
+ * @param e {object}
  */
-sr.updateKarmaForQualities = function updateKarmaForQualities(e) {
+sr.calculateQualities = function calculateQualities(e)
+{
     var quality = e.target.id;
-    var qualities = {
-        'ambidextrous': 4,
-        'analytical-mind': 5,
-        'apititude': 14,
-        'astral-chameleon': 10,
-        'bilingual': 5,
-        'blandness': 8,
-        'catlike': 7,
-        'codeslinger': 10,
-        'double-jointed': 6,
-        'exceptional-attribute': 14,
-        'first-impression': 11,
-        //'focused-concentration':
-        'gearhead': 11,
-        'guts': 10,
-        //'high-pain-tolerance':
-        'home-ground': 10,
-        'human-looking': 6,
-        //'indomitable':
-        'juryrigger': 10,
-        'lucky': 12,
-        //'magical-resistance':
-        'mentor-spirit': 5,
-        'natural-athlete': 7,
-        'natural-hardening': 10,
-        //'natural-immunity':
-        'photographic-memory': 6,
-        'quick-healer': 3,
-        //'resistance':
-        'spirit-affinity': 7,
-        'toughness': 9,
-        //'will-to-live':
-        //'addiction':
-        //'allergy':
-        'astral-beacon': -10,
-        'bad-luck': -12,
-        'bad-rep': -7,
-        'code-of-honor': -15,
-        'codeblock': -10,
-        'combat-paralysis': -12,
-        //'dependents':
-        'distinctive-style': -5,
-        'elf-poser': -6,
-        //'gremlins':
-        'incompetent': -5,
-        //'insomnia':
-        'loss-of-confidence': -10,
-        'low-pain-tolerance': -9,
-        'ork-poser': -6,
-        //'prejudiced':
-        'scorched': -10,
-        'sensitive-system': -12,
-        'simsense-vertigo': -5,
-        //'sinner':
-        'social-stress': -8,
-        'spirit-bane': -7,
-        'uncouth': -14,
-        'uneducated': -8,
-        'unsteady-hands': -7,
-        'weak-immune-system': -10
-    };
-    var karmaInput = $('#karma')[0];
-    var karmaPointInput = $('#karma-points')[0];
-    /** @type {Number} Used to handle checking and unchecking qualities */
-    var multiplier = 1;
-    if (!e.target.checked) {
-        multiplier = -1;
-    }
+    var cost;
 
-    if (qualities[quality]) {
-        karmaInput.value = parseInt(karmaInput.value, 10)
-            - qualities[quality] * multiplier;
-        karmaPointInput.value = karmaInput.value;
+    if (sr.qualities[quality] && sr.qualities[quality]['cost']) {
+        if ($.type(sr.qualities[quality]['cost']) === 'function') {
+            cost = sr.qualities[quality]['cost']();
+        } else if ($.type(sr.qualities[quality]['cost']) === 'number') {
+            cost = sr.qualities[quality]['cost'];
+        }
+
+        if (!e.target.checked) {
+            if (sr.selectedQualties[quality]) {
+                delete sr.selectedQualties[quality];
+            }
+        } else {
+            sr.selectedQualties[quality] = cost;
+        }
+        sr.updateQualities();
     } else {
-        window.console.log('error with quality or not implemented');
+        console.log('Unknown quality ' + quality);
     }
 };
 
+/**
+ * Update the karma based on the qualities selected
+ */
+sr.updateQualities = function updateQualities()
+{
+    var karmaPointInput = $('#karma-points')[0];
+    var cost = 0;
+
+    $.each(sr.selectedQualties, function(key, value) {
+        cost += value;
+    });
+
+    karmaPointInput.value = (sr.karma - cost);
+};
 /**
  * Handle a toggle of the exceptional attribute quality
  *
@@ -621,25 +818,6 @@ sr.exceptionalAttributeSelect = function exceptionalAttributeSelect(e) {
         $('#' + selectedAttribute).attr('max', maxAttributeLimit + 1);
         $('#' + selectedAttribute + '-max').val(maxAttributeLimit + 1);
     }
-};
-
-/**
- *  Handle a toggle of the lucky quality.
- *  
- * @param e {Event} The event object
- */
-sr.lucky = function lucky(e){
-    var metatype = $('#metatype').val();
-    var maxAttributeLimit = sr.metatypeAttributeLimits[metatype]['edge']['max'];
-
-    $('#exceptional-attribute').prop('disabled', e.currentTarget.checked);
-
-    if (e.currentTarget.checked) {
-        maxAttributeLimit++;
-    }
-
-    $('#edge').attr('max', maxAttributeLimit);
-    $('#edge-max').val(maxAttributeLimit);
 };
 
 $(document).ready(sr.setupHandlers);

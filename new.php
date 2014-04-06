@@ -410,8 +410,15 @@ In certain circumstances and specific situations, the gamemaster may determine t
                 <td title="A technomancer or magic user with the Focused Concentration quality has the discipline to manipulate mana or Resonance more precisely than otherwise possible. This precision reduces stress to the magic user’s or technomancer’s body. She is able to sustain one spell/complex form with a force/level equal to her Focused Concentration rating without suffering any penalties. For example, a magic user with Focused Concentration rating 3 may sustain a Force 3 Armor spell without taking the negative dice pool modifier for sustaining a spell. Sustaining any additional spells or com- plex forms incurs the standard –2 dice pool modifier per spell or complex form sustained. This quality may only be taken by magic user characters that are able to cast spells and technomancers.">
                     <input id="focused-concentration" name="quality[]" type="checkbox" value="focused-concentration">
                     <label for="focused-concentration">Focused Concentration</label>
+                    <select id="focused-concentration-select" hidden>
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
                 </td>
-                <td>4-24</td>
+                <td>4-20</td>
                 <td title="Characters with the Gremlins quality don’t get along with technology. Devices malfunction inexplicably, software crashes unexpectedly, vehicles refuse to start, components become unusually fragile at his touch, and wireless links suffer faltering connections and odd interference whenever he’s involved.">
                     <input id="gremlins" name="quality[]" type="checkbox" value="gremlins">
                     <label for="gremlins">Gremlins</label>
@@ -484,6 +491,11 @@ damage tracks.">
                 <td title="Bodies and minds have limits, but some people have the will to push right through those boundaries. For each level of Indomitable, a character receives a +1 increase to an Inherent limit of his choice (Mental, Physical, or Social). He can take up to three levels and can apply them in any way he chooses (+3 to one Inherent Limit, for example; or +2 to one Inherent and +1 to another; or +1 to all three).">
                     <input id="indomitable" name="quality[]" type="checkbox" value="indomitable">
                     <label for="indomitable">Indomitable</label>
+                    <select id="indomitable-select" hidden>
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
                 </td>
                 <td>8-24</td>
                 <td title="With this quality the character is Prejudiced against members of a specific group of people: metahumans, Awakened, non-metahuman sapient critters, or some other group. The character is not merely intolerant—he is outspoken about his beliefs and may actively work against the target of his prejudice. Depending upon the degree of prejudice, this quality can get the character into trouble for expressing his views or when forced to confront the targets of his prejudice.">
@@ -637,9 +649,7 @@ Resistance tests.">
         </tbody>
     </table>
 </section>
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
-</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
