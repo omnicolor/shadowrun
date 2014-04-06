@@ -140,7 +140,37 @@ sr.qualities = {
         "cost": 6
     },
     'exceptional-attribute': {
-        "cost": 14
+        "cost": function () {
+            var metatype = $('#metatype')[0].value;
+            var luckyInput = $('#lucky')[0];
+            var exceptionalAttributeInput= $('#exceptional-attribute')[0];
+            var exceptionalAttributeSelect = $('#exceptional-attribute-select');
+            var isMagicGuy = false;
+            var isMatrixGuy = false;
+
+            luckyInput.disabled = exceptionalAttributeInput.checked;
+            exceptionalAttributeSelect.prop('hidden', !exceptionalAttributeInput.checked);
+
+            if (exceptionalAttributeInput.checked) {
+                //TODO: add this when we have a way to check if magic is selected
+                if (isMagicGuy) {
+                    exceptionalAttributeSelect.append($("<option></option>")
+                        .attr("value", 'magic')
+                        .text('Magic'));
+                }
+                if (isMatrixGuy) {
+                    exceptionalAttributeSelect.append($("<option></option>")
+                        .attr("value", 'resonance')
+                        .text('Resonance'));
+                }
+
+            } else {
+                exceptionalAttributeSelect.empty();
+                sr.updateAttributeLimits(metatype);
+            }
+
+            return 14;
+        }
     },
     'first-impression': {
         "cost": 11
@@ -346,9 +376,19 @@ sr.setupHandlers = function setupHandlers() {
     $('#magic-e').on('click', sr.removeMagic);
     $('input[name="quality[]"]').on('change', sr.calculateQualities);
 
-    $('#exceptional-attribute').on('change', sr.exceptionalAttribute);
-//    $('#lucky').on('change', sr.lucky);
-    $('#exceptional-attribute-select').on('change', sr.exceptionalAttributeSelect);
+    $('#exceptional-attribute-select').on('change', function (e) {
+        var selectedAttribute = $("#exceptional-attribute-select").find("option:selected").val();
+        var metatype = $('#metatype')[0].value;
+
+        //Reset our limits before we change them
+        sr.updateAttributeLimits(metatype);
+
+        if (selectedAttribute != 'none') {
+            var maxAttributeLimit = sr.metatypeAttributeLimits[metatype][selectedAttribute]['max'];
+            $('#' + selectedAttribute)[0].max = maxAttributeLimit + 1;
+            $('#' + selectedAttribute + '-max')[0].value = maxAttributeLimit + 1;
+        }
+    });
 
     $('#focused-concentration-select').on('change', function (e) {
         var focusedConcentrationSelect = $('#focused-concentration-select')[0];
@@ -663,6 +703,8 @@ sr.updateSpecialPoints = function updateSpecialPoints(e) {
 sr.updateAttributeLimits = function updateAttributeLimits(metatype) {
     var attributeLimits = sr.metatypeAttributeLimits[metatype];
     var input;
+    var edgeInput = $('#edge')[0];
+
     sr.freeAttributePoints = 0;
 
     for (attribute in attributeLimits) {
@@ -676,7 +718,7 @@ sr.updateAttributeLimits = function updateAttributeLimits(metatype) {
         $('#' + attribute + '-max')[0].value = attributeLimits[attribute]['max'];
         $(input).trigger('change');
     }
-    input = $('#edge').val(attributeLimits['edge']['min']);
+    edgeInput.value = attributeLimits['edge']['min'];
 };
 
 /**
@@ -755,69 +797,6 @@ sr.updateQualities = function updateQualities()
     });
 
     karmaPointInput.value = (sr.karma - cost);
-};
-/**
- * Handle a toggle of the exceptional attribute quality
- *
- * @param e {Event} The event object
- */
-sr.exceptionalAttribute = function exceptionalAttribute(e) {
-    var metatype = $('#metatype').val();
-    var exceptionalAttributeSelect = $('#exceptional-attribute-select');
-
-    $('#lucky').prop('disabled', e.currentTarget.checked);
-    exceptionalAttributeSelect.prop('hidden', !e.currentTarget.checked);
-
-    if (e.currentTarget.checked) {
-        var attributeOptions = [
-            {"value": "none", "text": "Select One"},
-            {"value": "body", "text": "Body"},
-            {"value": "agility", "text": "Agility"},
-            {"value": "reaction", "text": "Reaction"},
-            {"value": "strength", "text": "Strength"},
-            {"value": "willpower", "text": "Willpower"},
-            {"value": "logic", "text": "Logic"},
-            {"value": "intuition", "text": "Intuition"},
-            {"value": "charisma", "text": "Charisma"}
-        ];
-
-
-        //TODO: add this when we have a way to check if magic is selected
-//        if (is_magic_guy) {
-//        attributeOptions.push({"value": "magic", "text": "Magic"});
-//        }
-//        if (is_matrix_guy) {
-//        attributeOptions.push({"value": "resonance", "text": "Resonance"});
-//        }
-
-        $.each(attributeOptions, function (key, data) {
-            exceptionalAttributeSelect.append($("<option></option>")
-                .attr("value", data["value"])
-                .text(data["text"]));
-        });
-    } else {
-        exceptionalAttributeSelect.empty();
-        sr.updateAttributeLimits(metatype);
-    }
-};
-
-/**
- * Handle a change of the selected exceptional attribute
- *
- * @param e {Event} The event object
- */
-sr.exceptionalAttributeSelect = function exceptionalAttributeSelect(e) {
-    var selectedAttribute = $("#exceptional-attribute-select").find("option:selected").val();
-    var metatype = $('#metatype').val();
-
-    //Reset our limits before we change them
-    sr.updateAttributeLimits(metatype);
-
-    if (selectedAttribute != 'none') {
-        var maxAttributeLimit = sr.metatypeAttributeLimits[metatype][selectedAttribute]['max'];
-        $('#' + selectedAttribute).attr('max', maxAttributeLimit + 1);
-        $('#' + selectedAttribute + '-max').val(maxAttributeLimit + 1);
-    }
 };
 
 $(document).ready(sr.setupHandlers);
