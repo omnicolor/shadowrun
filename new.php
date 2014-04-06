@@ -385,7 +385,17 @@ In certain circumstances and specific situations, the gamemaster may determine t
                 <td title="The Exceptional Atribute quality is how you get to be the charismatic troll, or the agile dwarf. It allows you to possess one attribute at a level one point above the metatype maximum limit. For example, an ork character with the Exceptional Attribute quality for Strength could take his Strength attribute up to 10 before augmentations are applied, instead of the normal limit of 9. Exceptional Attribute also applies toward Special Attributes such as Magic and Resonance. Edge cannot affected by the Exceptional Attribute (Edge is raised by another quality called Lucky). A character may only take Exceptional Attribute once, and only with the gamemaster’s approval.">
                     <input id="exceptional-attribute" name="quality[]" type="checkbox" value="exceptional-attribute">
                     <label for="exceptional-attribute">Exceptional Attribute</label>
-                    <select id="exceptional-attribute-select" hidden></select>
+                    <select id="exceptional-attribute-select" hidden>
+                        <option value="none">Select One</option>
+                        <option value="body">Body</option>
+                        <option value="agility">Agility</option>
+                        <option value="reaction">Reaction</option>
+                        <option value="strength">Strength</option>
+                        <option value="willpower">Willpower</option>
+                        <option value="logic">Logic</option>
+                        <option value="intuition">Intuition</option>
+                        <option value="charisma">Charisma</option>
+                    </select>
                 </td>
                 <td>14</td>
                 <td title="A character with the Distinctive Style quality has at least one aspect of his appearance, mannerism, or personality that makes him inconveniently memorable. Choices for Distinctive Style include, but are by no means limited to: tattoos that cannot be easily concealed, an accent or atypical manner of speaking, bizarre fashion choices, scars, gang or prison signs, flashy custom augmentations, or non-metahuman modifications like a tail. Note that what’s distinctive in one culture or location may not be in another.">
@@ -410,8 +420,15 @@ In certain circumstances and specific situations, the gamemaster may determine t
                 <td title="A technomancer or magic user with the Focused Concentration quality has the discipline to manipulate mana or Resonance more precisely than otherwise possible. This precision reduces stress to the magic user’s or technomancer’s body. She is able to sustain one spell/complex form with a force/level equal to her Focused Concentration rating without suffering any penalties. For example, a magic user with Focused Concentration rating 3 may sustain a Force 3 Armor spell without taking the negative dice pool modifier for sustaining a spell. Sustaining any additional spells or com- plex forms incurs the standard –2 dice pool modifier per spell or complex form sustained. This quality may only be taken by magic user characters that are able to cast spells and technomancers.">
                     <input id="focused-concentration" name="quality[]" type="checkbox" value="focused-concentration">
                     <label for="focused-concentration">Focused Concentration</label>
+                    <select id="focused-concentration-select" hidden>
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
                 </td>
-                <td>4-24</td>
+                <td>4-20</td>
                 <td title="Characters with the Gremlins quality don’t get along with technology. Devices malfunction inexplicably, software crashes unexpectedly, vehicles refuse to start, components become unusually fragile at his touch, and wireless links suffer faltering connections and odd interference whenever he’s involved.">
                     <input id="gremlins" name="quality[]" type="checkbox" value="gremlins">
                     <label for="gremlins">Gremlins</label>
@@ -445,10 +462,15 @@ those skills.">
             </tr>
             <tr>
                 <td title="High Pain Tolerance lets a character keep delivering the pain even if she’s had plenty piled on her own head.  A character with High Pain Tolerance can ignore one box of damage per rating point of this quality when calculating wound modifiers (see Wound Modifiers, p.  169). So a character with this quality at Rating 2 can take 4 boxes of damage but carry on without wound modifiers as if she only had 2 boxes of damage. The –1 wound modifier would then kick in when the character takes her fifth box in damage. This quality may not be used with the Pain Resistance adept power, pain editor bioware, or damage compensator bioware.">
-                    <input id="high-pain" name="quality[]" type="checkbox" value="high-pain">
-                    <label for="high-pain">High Pain Tolerance</label>
+                    <input id="high-pain-tolerance" name="quality[]" type="checkbox" value="high-pain">
+                    <label for="high-pain-tolerance">High Pain Tolerance</label>
+                    <select id="high-pain-tolerance-select" hidden>
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
                 </td>
-                <td>7</td>
+                <td>7-21</td>
                 <td title="The Loss of Confidence quality means something has caused the character to lose confidence in himself and one of his abilities. Though a skilled decker, he failed to hack into a Stuffer Shack grid, or despite high Agility, he glitched an easy Climbing Test and fell into a dumpster—whatever the reason, he now doubts himself and his abilities. In tests involving the affected skill, the character suffers a –2 dice pool modifier. If the character has a specialization with the skill, the character cannot use that specialization while suffering a loss of confidence.  The skill chosen for the character to have a Loss of Confidence must be one that the character prides himself in and has invested in building. Only skills with a rating 4 or higher may suffer the Loss of Confidence quality. Edge may not be used for tests involving this skill when the character is suffering Loss of Confidence.">
                     <input id="loss-of-confidence" name="quality[]" type="checkbox" value="loss-of-confidence">
                     <label for="loss-of-confidence">Loss Of Confidence</label>
@@ -484,6 +506,11 @@ damage tracks.">
                 <td title="Bodies and minds have limits, but some people have the will to push right through those boundaries. For each level of Indomitable, a character receives a +1 increase to an Inherent limit of his choice (Mental, Physical, or Social). He can take up to three levels and can apply them in any way he chooses (+3 to one Inherent Limit, for example; or +2 to one Inherent and +1 to another; or +1 to all three).">
                     <input id="indomitable" name="quality[]" type="checkbox" value="indomitable">
                     <label for="indomitable">Indomitable</label>
+                    <select id="indomitable-select" hidden>
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
                 </td>
                 <td>8-24</td>
                 <td title="With this quality the character is Prejudiced against members of a specific group of people: metahumans, Awakened, non-metahuman sapient critters, or some other group. The character is not merely intolerant—he is outspoken about his beliefs and may actively work against the target of his prejudice. Depending upon the degree of prejudice, this quality can get the character into trouble for expressing his views or when forced to confront the targets of his prejudice.">
@@ -518,8 +545,14 @@ damage tracks.">
             </tr>
             <tr>
                 <td title="This is the wonderful ability to potentially make a Fire- ball bounce away. For every 6 Karma spent on Magic Resistance, a character receives 1 additional die for Spell Resistance Tests. The Magical Resistance quality, however, is always “on”—the character cannot lower it to receive beneficial spells such as Heal. A character with Magic Resistance cannot take part in spells that require a voluntary subject; such spells automatically fail when used on magic-resistant characters.">
-                    <input id="magic-resistance" name="quality[]" type="checkbox" value="magic-resistance">
-                    <label for="magic-resistance">Magic Resistance</label>
+                    <input id="magical-resistance" name="quality[]" type="checkbox" value="magic-resistance">
+                    <label for="magical-resistance">Magic Resistance</label>
+                    <select id="magical-resistance-select" hidden>
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
                 </td>
                 <td>6-24</td>
                 <td title="Characters who suffer from Simsense Vertigo experience feelings of disorientation whenever they work with augmented reality, virtual reality, or simsense (including smartlinks, simrigs, and image links). Such characters receive a –2 dice pool modifier to all tests when interacting with AR, VR, or simsense.">
@@ -631,15 +664,18 @@ Resistance tests.">
                 <td title="For each rating point in Will to Live, the character gains 1 additional Damage Overflow Box (p. 101). These additional boxes only allow the character to sustain additional damage before dying; they do not raise the threshold at which the character becomes unconscious or incapacitated, nor do they affect modifiers from the damage the character has taken.">
                     <input id="will-to-live" name="quality[]" type="checkbox" value="will-to-live">
                     <label for="will-to-live">Will To Live</label>
+                    <select id="will-to-live-select" hidden>
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
                 </td>
                 <td>3-9</td>
             </tr>
         </tbody>
     </table>
 </section>
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
-</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
