@@ -644,6 +644,7 @@ Resistance tests.">
                     <label for="will-to-live">Will To Live</label>
                 </td>
                 <td>3-9</td>
+                <td colspan="2"></td>
             </tr>
         </tbody>
     </table>
