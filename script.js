@@ -434,7 +434,7 @@ sr.setupHandlers = function setupHandlers() {
         //Reset our limits before we change them
         sr.updateAttributeLimits(metatype);
 
-        if (selectedAttribute != 'none') {
+        if (selectedAttribute !== 'none') {
             var maxAttributeLimit = sr.metatypeAttributeLimits[metatype][selectedAttribute]['max'];
             $('#' + selectedAttribute)[0].max = maxAttributeLimit + 1;
             $('#' + selectedAttribute + '-max')[0].value = maxAttributeLimit + 1;
