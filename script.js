@@ -159,10 +159,14 @@ sr.qualities = {
             var isMatrixGuy = false;
 
             luckyInput.disabled = exceptionalAttributeInput.checked;
-            exceptionalAttributeSelect.prop('hidden', !exceptionalAttributeInput.checked);
+            exceptionalAttributeSelect.prop(
+                'hidden',
+                !exceptionalAttributeInput.checked
+            );
 
             if (exceptionalAttributeInput.checked) {
-                //TODO: add this when we have a way to check if magic is selected
+                // TODO: add this when we have a way to check if magic is
+                // selected
                 if (isMagicGuy) {
                     exceptionalAttributeSelect.append($("<option></option>")
                         .attr("value", 'magic')
@@ -218,7 +222,8 @@ sr.qualities = {
         }
     },
     //'high-pain-tolerance': //7 karma (max 3)
-    //'home-ground': 10, //10 karma, can take each type once, should add description to notes
+    // 10 karma, can take each type once, should add description to notes
+    //'home-ground': 10,
     //  Astral Acclimation
     //  You Know a Guy
     //  Digital Turf
@@ -258,7 +263,8 @@ sr.qualities = {
                     sr.metatypeAttributeLimits[metatype]['edge'] &&
                     sr.metatypeAttributeLimits[metatype]['edge']['max']
                     ) {
-                var maxAttributeLimit = sr.metatypeAttributeLimits[metatype]['edge']['max'];
+                var maxAttributeLimit =
+                    sr.metatypeAttributeLimits[metatype]['edge']['max'];
 
                 exceptionalAttributeInput.disabled = luckyInput.checked;
                 if (luckyInput.checked) {
@@ -294,16 +300,20 @@ sr.qualities = {
     'natural-hardening': {
         "cost": 10
     },
-    //'natural-immunity': //4 karma (single natural disease or toxin) or 10 karma (single, synthetic (artificially created) disease or toxin),
+    // 4 karma (single natural disease or toxin)
+    // or 10 karma (single, synthetic (artificially created) disease or toxin)
+    //'natural-immunity':
     'photographic-memory': {
         "cost": 6
     },
     'quick-healer': {
         "cost": 3
     },
+    // 4 karma (+1 modifier for pathogens or toxins)
+    // or 8 karma (+1 modifier for resisting both)
     //'resistance': {
     //    "cost": [4,8]
-    //},//4 karma (+1 modifier for pathogens or toxins) or 8 karma (+1 modifier for resisting both)
+    //},
     'spirit-affinity': {
         "cost": 7
     },
@@ -345,7 +355,7 @@ sr.qualities = {
     },
     //'dependents':
     'distinctive-style': {
-        "cost":  -5
+        "cost": -5
     },
     'elf-poser': {
         "cost": -6
@@ -428,16 +438,19 @@ sr.setupHandlers = function setupHandlers() {
     $('input[name="quality[]"]').on('change', sr.calculateQualities);
 
     $('#exceptional-attribute-select').on('change', function () {
-        var selectedAttribute = $("#exceptional-attribute-select").find("option:selected").val();
+        var selectedAttribute = $("#exceptional-attribute-select")
+            .find("option:selected").val();
         var metatype = $('#metatype')[0].value;
 
         //Reset our limits before we change them
         sr.updateAttributeLimits(metatype);
 
         if (selectedAttribute !== 'none') {
-            var maxAttributeLimit = sr.metatypeAttributeLimits[metatype][selectedAttribute]['max'];
+            var maxAttributeLimit =
+                sr.metatypeAttributeLimits[metatype][selectedAttribute]['max'];
             $('#' + selectedAttribute)[0].max = maxAttributeLimit + 1;
-            $('#' + selectedAttribute + '-max')[0].value = maxAttributeLimit + 1;
+            $('#' + selectedAttribute + '-max')[0].value =
+                maxAttributeLimit + 1;
         }
     });
 
@@ -815,7 +828,8 @@ sr.updateAttributeLimits = function updateAttributeLimits(metatype) {
         if (attribute !== 'edge') {
             sr.freeAttributePoints += attributeLimits[attribute]['min'];
         }
-        $('#' + attribute + '-max')[0].value = attributeLimits[attribute]['max'];
+        $('#' + attribute + '-max')[0].value =
+            attributeLimits[attribute]['max'];
         $(input).trigger('change');
     }
     edgeInput.value = attributeLimits['edge']['min'];
@@ -859,7 +873,7 @@ sr.removeMagic = function removeMagic() {
 /**
  * When a user selects a quality update their karma
  *
- * @param e {object}
+ * @param {object} e
  */
 sr.calculateQualities = function calculateQualities(e) {
     'use strict';
