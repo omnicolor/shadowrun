@@ -218,7 +218,7 @@ sr.qualities = {
         }
     },
     //'high-pain-tolerance': //7 karma (max 3)
-//        'home-ground': 10, //10 karma, can take each type once, should add description to notes
+    //'home-ground': 10, //10 karma, can take each type once, should add description to notes
     //  Astral Acclimation
     //  You Know a Guy
     //  Digital Turf
@@ -301,9 +301,9 @@ sr.qualities = {
     'quick-healer': {
         "cost": 3
     },
-//    'resistance': {
-//        "cost": [4,8]
-//    },//4 karma (+1 modifier for pathogens or toxins) or 8 karma (+1 modifier for resisting both)
+    //'resistance': {
+    //    "cost": [4,8]
+    //},//4 karma (+1 modifier for pathogens or toxins) or 8 karma (+1 modifier for resisting both)
     'spirit-affinity': {
         "cost": 7
     },
