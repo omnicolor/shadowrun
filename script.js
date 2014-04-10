@@ -1,43 +1,54 @@
 /**
+ * @fileoverview Javascript behaviors for Shadowrun character editor.
+ */
+
+/**
  * @type {Object}
  */
 var sr = {};
 
 /**
- * @type {Number} Amount of special points the character starts with based on
- * their race priority.
+ * Amount of special points the character starts with based ontheir race
+ * priority.
+ * @type {Number}
  */
 sr.specialPointTotal = 0;
 
 /**
- * @type {Number} Amount of resonance the character gets based on their magic or
- * resonance priority choice.
+ * Amount of resonance the character gets based on their magic or resonance
+ * priority choice.
+ * @type {Number}
  */
 sr.freeResonance = 0;
 
 /**
- * @type {Number} Amount of magic rating the character gets based on their magic
- * or resonance priority choice.
+ * Amount of magic rating the character gets based on their magic or resonance
+ * priority choice.
+ * @type {Number}
  */
 sr.freeMagic = 0;
 
 /**
- * @type {Number} Amount of free edge the character gets based on their race.
+ * Amount of free edge the character gets based on their race
+ * @type {Number}
  */
 sr.freeEdge = 1;
 
 /**
- * @type {Number} Number of "free" attribute points character gets for race.
+ * Number of "free" attribute points character gets for race
+ * @type {Number}
  */
 sr.freeAttributePoints = 0;
 
 /**
- * @type {Number} Number of attribute points from priority.
+ * Number of attribute points from priority
+ * @type {Number}
  */
 sr.attributePoints = 0;
 
 /**
- * @type {Number} Amount of karma the user has to play with.
+ * Amount of karma the user has to play with
+ * @type {Number}
  */
 sr.karma = 25;
 
@@ -118,7 +129,8 @@ sr.metatypeAttributeLimits = {
 };
 
 /**
- * @type {Object} Map of qualities to either their cost or a cost function.
+ * Map of qualities to either their cost or a cost function
+ * @type {Object}
  */
 sr.qualities = {
     'ambidextrous': {
