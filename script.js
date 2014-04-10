@@ -803,6 +803,7 @@ sr.updateAttributeLimits = function updateAttributeLimits(metatype) {
     var attributeLimits = sr.metatypeAttributeLimits[metatype];
     var input;
     var edgeInput = $('#edge')[0];
+    var attribute;
 
     sr.freeAttributePoints = 0;
 
