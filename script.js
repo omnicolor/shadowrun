@@ -122,34 +122,34 @@ sr.metatypeAttributeLimits = {
  */
 sr.qualities = {
     'ambidextrous': {
-        "cost": 4
+        'cost': 4
     },
     'analytical-mind': {
-        "cost": 5
+        'cost': 5
     },
     'apititude': {
-        "cost": 14
+        'cost': 14
     },
     'astral-chameleon': {
-        "cost": 10
+        'cost': 10
     },
     'bilingual': {
-        "cost": 5
+        'cost': 5
     },
     'blandness': {
-        "cost": 8
+        'cost': 8
     },
     'catlike': {
-        "cost": 7
+        'cost': 7
     },
     'codeslinger': {
-        "cost": 10
+        'cost': 10
     },
     'double-jointed': {
-        "cost": 6
+        'cost': 6
     },
     'exceptional-attribute': {
-        "cost": function () {
+        'cost': function () {
             'use strict';
             var metatype = $('#metatype')[0].value;
             var luckyInput = $('#lucky')[0];
@@ -168,13 +168,13 @@ sr.qualities = {
                 // TODO: add this when we have a way to check if magic is
                 // selected
                 if (isMagicGuy) {
-                    exceptionalAttributeSelect.append($("<option></option>")
-                        .attr("value", 'magic')
+                    exceptionalAttributeSelect.append($('<option></option>')
+                        .attr('value', 'magic')
                         .text('Magic'));
                 }
                 if (isMatrixGuy) {
-                    exceptionalAttributeSelect.append($("<option></option>")
-                        .attr("value", 'resonance')
+                    exceptionalAttributeSelect.append($('<option></option>')
+                        .attr('value', 'resonance')
                         .text('Resonance'));
                 }
 
@@ -187,10 +187,10 @@ sr.qualities = {
         }
     },
     'first-impression': {
-        "cost": 11
+        'cost': 11
     },
     'focused-concentration': {
-        "cost": function () {
+        'cost': function () {
             'use strict';
             var baseCost = 4;
             var input = $('#focused-concentration')[0];
@@ -203,13 +203,13 @@ sr.qualities = {
         }
     },
     'gearhead': {
-        "cost": 11
+        'cost': 11
     },
     'guts': {
-        "cost": 10
+        'cost': 10
     },
     'high-pain-tolerance': {
-        "cost": function () {
+        'cost': function () {
             'use strict';
             var baseCost = 7;
             var input = $('#high-pain-tolerance')[0];
@@ -231,10 +231,10 @@ sr.qualities = {
     //  On the Lam
     //  Street Politics
     'human-looking': {
-        "cost": 6
+        'cost': 6
     },
     'indomitable': {
-        "cost": function () {
+        'cost': function () {
             'use strict';
             var baseCost = 8;
             var input = $('#indomitable')[0];
@@ -247,10 +247,10 @@ sr.qualities = {
         }
     },
     'juryrigger': {
-        "cost": 10
+        'cost': 10
     },
     'lucky': {
-        "cost": function () {
+        'cost': function () {
             'use strict';
             var metatype = $('#metatype')[0].value;
             var luckyInput = $('#lucky')[0];
@@ -279,7 +279,7 @@ sr.qualities = {
         }
     },
     'magical-resistance': {
-        "cost": function () {
+        'cost': function () {
             'use strict';
             var baseCost = 6;
             var input = $('#magical-resistance')[0];
@@ -292,36 +292,36 @@ sr.qualities = {
         }
     },
     'mentor-spirit': {
-        "cost": 5
+        'cost': 5
     },
     'natural-athlete': {
-        "cost": 7
+        'cost': 7
     },
     'natural-hardening': {
-        "cost": 10
+        'cost': 10
     },
     // 4 karma (single natural disease or toxin)
     // or 10 karma (single, synthetic (artificially created) disease or toxin)
     //'natural-immunity':
     'photographic-memory': {
-        "cost": 6
+        'cost': 6
     },
     'quick-healer': {
-        "cost": 3
+        'cost': 3
     },
     // 4 karma (+1 modifier for pathogens or toxins)
     // or 8 karma (+1 modifier for resisting both)
     //'resistance': {
-    //    "cost": [4,8]
+    //    'cost': [4,8]
     //},
     'spirit-affinity': {
-        "cost": 7
+        'cost': 7
     },
     'toughness': {
-        "cost": 9
+        'cost': 9
     },
     'will-to-live': {
-        "cost": function () {
+        'cost': function () {
             'use strict';
             var baseCost = 3;
             var input = $('#will-to-live')[0];
@@ -336,72 +336,72 @@ sr.qualities = {
     //'addiction':
     //'allergy':
     'astral-beacon': {
-        "cost": -10
+        'cost': -10
     },
     'bad-luck': {
-        "cost": -12
+        'cost': -12
     },
     'bad-rep': {
-        "cost": -7
+        'cost': -7
     },
     'code-of-honor': {
-        "cost": -15
+        'cost': -15
     },
     'codeblock': {
-        "cost": -10
+        'cost': -10
     },
     'combat-paralysis': {
-        "cost": -12
+        'cost': -12
     },
     //'dependents':
     'distinctive-style': {
-        "cost": -5
+        'cost': -5
     },
     'elf-poser': {
-        "cost": -6
+        'cost': -6
     },
     //'gremlins':
     'incompetent': {
-        "cost": -5
+        'cost': -5
     },
     //'insomnia':
     'loss-of-confidence': {
-        "cost": -10
+        'cost': -10
     },
     'low-pain-tolerance': {
-        "cost": -9
+        'cost': -9
     },
     'ork-poser': {
-        "cost": -6
+        'cost': -6
     },
     //'prejudiced':
     'scorched': {
-        "cost": -10
+        'cost': -10
     },
     'sensitive-system': {
-        "cost": -12
+        'cost': -12
     },
     'simsense-vertigo': {
-        "cost": -5
+        'cost': -5
     },
     //'sinner':
     'social-stress': {
-        "cost": -8
+        'cost': -8
     },
     'spirit-bane': {
-        "cost": -7
+        'cost': -7
     },
     'uncouth': {
-        "cost": -14
+        'cost': -14
     },
     'uneducated': {
-        "cost": -8
+        'cost': -8
     },
     'unsteady-hands': {
-        "cost": -7
+        'cost': -7
     },
     'weak-immune-system': {
-        "cost": -10
+        'cost': -10
     }
 };
 
@@ -438,8 +438,8 @@ sr.setupHandlers = function setupHandlers() {
     $('input[name="quality[]"]').on('change', sr.calculateQualities);
 
     $('#exceptional-attribute-select').on('change', function () {
-        var selectedAttribute = $("#exceptional-attribute-select")
-            .find("option:selected").val();
+        var selectedAttribute = $('#exceptional-attribute-select')
+            .find('option:selected').val();
         var metatype = $('#metatype')[0].value;
 
         //Reset our limits before we change them
