@@ -153,7 +153,7 @@ sr.qualities = {
             'use strict';
             var metatype = $('#metatype')[0].value;
             var luckyInput = $('#lucky')[0];
-            var exceptionalAttributeInput= $('#exceptional-attribute')[0];
+            var exceptionalAttributeInput = $('#exceptional-attribute')[0];
             var exceptionalAttributeSelect = $('#exceptional-attribute-select');
             var isMagicGuy = false;
             var isMatrixGuy = false;
@@ -254,10 +254,10 @@ sr.qualities = {
             var exceptionalAttributeInput = $('#exceptional-attribute')[0];
 
             if (metatype &&
-                sr.metatypeAttributeLimits[metatype] &&
-                sr.metatypeAttributeLimits[metatype]['edge'] &&
-                sr.metatypeAttributeLimits[metatype]['edge']['max']
-                ) {
+                    sr.metatypeAttributeLimits[metatype] &&
+                    sr.metatypeAttributeLimits[metatype]['edge'] &&
+                    sr.metatypeAttributeLimits[metatype]['edge']['max']
+                    ) {
                 var maxAttributeLimit = sr.metatypeAttributeLimits[metatype]['edge']['max'];
 
                 exceptionalAttributeInput.disabled = luckyInput.checked;
@@ -344,7 +344,7 @@ sr.qualities = {
         "cost": -12
     },
     //'dependents':
-    'distinctive-style':{
+    'distinctive-style': {
         "cost":  -5
     },
     'elf-poser': {
@@ -491,7 +491,7 @@ sr.setupHandlers = function setupHandlers() {
         sr.updateQualities();
     });
 
-    $('#karma').on('change', function(e) {
+    $('#karma').on('change', function (e) {
         var karmaPoints = $('#karma-points')[0];
         var karmaDiff = (parseInt(e.currentTarget.value, 10) - sr.karma);
         var karmaPointsValue = parseInt(karmaPoints.value, 10);
@@ -633,7 +633,7 @@ sr.updateAttributePoints = function updateAttributePoints() {
     ];
     var pointsEl = $('#attribute-points')[0];
     var attributeEl;
-    attributes.forEach(function(attribute) {
+    attributes.forEach(function (attribute) {
         attributeEl = $('#' + attribute)[0];
         if (attributeEl.value) {
             points -= parseInt(attributeEl.value, 10);
@@ -785,10 +785,10 @@ sr.updateSpecialPoints = function updateSpecialPoints(e) {
         resonance = 0;
     }
 
-    points = sr.specialPointTotal
-        - edge + sr.freeEdge
-        - magic + sr.freeMagic
-        - resonance + sr.freeResonance;
+    points = sr.specialPointTotal -
+        edge + sr.freeEdge -
+        magic + sr.freeMagic -
+        resonance + sr.freeResonance;
     specialPointsEl.val(points);
 };
 
@@ -858,8 +858,7 @@ sr.removeMagic = function removeMagic() {
  *
  * @param e {object}
  */
-sr.calculateQualities = function calculateQualities(e)
-{
+sr.calculateQualities = function calculateQualities(e) {
     'use strict';
     var quality = e.target.id;
     var cost;
@@ -887,13 +886,12 @@ sr.calculateQualities = function calculateQualities(e)
 /**
  * Update the karma based on the qualities selected
  */
-sr.updateQualities = function updateQualities()
-{
+sr.updateQualities = function updateQualities() {
     'use strict';
     var karmaPointInput = $('#karma-points')[0];
     var cost = 0;
 
-    $.each(sr.selectedQualties, function(key, value) {
+    $.each(sr.selectedQualties, function (key, value) {
         cost += value;
     });
 
