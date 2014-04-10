@@ -882,7 +882,7 @@ sr.calculateQualities = function calculateQualities(e) {
         }
         sr.updateQualities();
     } else {
-        console.log('Unknown quality ' + quality);
+        window.console.log('Unknown quality ' + quality);
     }
 };
 
