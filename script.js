@@ -150,6 +150,7 @@ sr.qualities = {
     },
     'exceptional-attribute': {
         "cost": function () {
+            'use strict';
             var metatype = $('#metatype')[0].value;
             var luckyInput = $('#lucky')[0];
             var exceptionalAttributeInput= $('#exceptional-attribute')[0];
@@ -186,6 +187,7 @@ sr.qualities = {
     },
     'focused-concentration': {
         "cost": function () {
+            'use strict';
             var baseCost = 4;
             var input = $('#focused-concentration')[0];
             var select = $('#focused-concentration-select')[0];
@@ -204,6 +206,7 @@ sr.qualities = {
     },
     'high-pain-tolerance': {
         "cost": function () {
+            'use strict';
             var baseCost = 7;
             var input = $('#high-pain-tolerance')[0];
             var select = $('#high-pain-tolerance-select')[0];
@@ -227,6 +230,7 @@ sr.qualities = {
     },
     'indomitable': {
         "cost": function () {
+            'use strict';
             var baseCost = 8;
             var input = $('#indomitable')[0];
             var select = $('#indomitable-select')[0];
@@ -242,6 +246,7 @@ sr.qualities = {
     },
     'lucky': {
         "cost": function () {
+            'use strict';
             var metatype = $('#metatype')[0].value;
             var luckyInput = $('#lucky')[0];
             var edgeInput = $('#edge')[0];
@@ -269,6 +274,7 @@ sr.qualities = {
     },
     'magical-resistance': {
         "cost": function () {
+            'use strict';
             var baseCost = 6;
             var input = $('#magical-resistance')[0];
             var select = $('#magical-resistance-select')[0];
@@ -306,6 +312,7 @@ sr.qualities = {
     },
     'will-to-live': {
         "cost": function () {
+            'use strict';
             var baseCost = 3;
             var input = $('#will-to-live')[0];
             var select = $('#will-to-live-select')[0];
@@ -392,6 +399,7 @@ sr.qualities = {
  * Set up all of the required handlers.
  */
 sr.setupHandlers = function setupHandlers() {
+    'use strict';
     $('.priority tbody').on('click', sr.handlePriorityClick);
     $('#agility').on('change', sr.updateAttributePoints);
     $('#body').on('change', sr.updateLift);
@@ -497,6 +505,7 @@ sr.setupHandlers = function setupHandlers() {
  * @param {Event} e
  */
 sr.handlePriorityClick = function handlePriorityClick(e) {
+    'use strict';
     var cell;
     if ('TD' !== e.target.tagName) {
         // If the user clicked on a race, we need to cause the whole cell to
@@ -520,6 +529,7 @@ sr.handlePriorityClick = function handlePriorityClick(e) {
  * @param {Object} cell
  */
 sr.changeRowSelection = function changeRowSelection(cell) {
+    'use strict';
     var $cell = $(cell);
     $cell.parent().children().removeClass('selected');
     $cell.addClass('selected');
@@ -531,6 +541,7 @@ sr.changeRowSelection = function changeRowSelection(cell) {
  * @param {Object} cell
  */
 sr.changeColumnSelection = function changeColumnSelection(cell) {
+    'use strict';
     var base = cell.id.slice(0, -1);
     var $cell;
     var $priority;
@@ -557,6 +568,7 @@ sr.changeColumnSelection = function changeColumnSelection(cell) {
  * @param {Object} cell
  */
 sr.updateAttributes = function updateAttributes(cell) {
+    'use strict';
     var priority = cell.id.slice(-1);
     var attributes = {
         a: 24,
@@ -574,6 +586,7 @@ sr.updateAttributes = function updateAttributes(cell) {
  * @param {Object} cell
  */
 sr.updateSkills = function updateSkills(cell) {
+    'use strict';
     var priority = cell.id.slice(-1);
     var skills = {
         a: { skills: 46, group: 10 },
@@ -593,6 +606,7 @@ sr.updateSkills = function updateSkills(cell) {
  * @param {Object} cell
  */
 sr.updateResources = function updateResources(cell) {
+    'use strict';
     var priority = cell.id.slice(-1);
     var resources = {
         a: 450000,
@@ -608,6 +622,7 @@ sr.updateResources = function updateResources(cell) {
  * Update the number of attribute points a character has to spend.
  */
 sr.updateAttributePoints = function updateAttributePoints() {
+    'use strict';
     // Character gets their attribute priority points + the "free" points from
     // their racial minimums.
     var points = sr.attributePoints + sr.freeAttributePoints;
@@ -631,6 +646,7 @@ sr.updateAttributePoints = function updateAttributePoints() {
  * Update a character's composure when one of its base stats changes.
  */
 sr.updateComposure = function updateComposure() {
+    'use strict';
     var charisma = parseInt($('#charisma').val(), 10);
     var willpower = parseInt($('#willpower').val(), 10);
     var composureEl = $('#composure');
@@ -646,6 +662,7 @@ sr.updateComposure = function updateComposure() {
  * change.
  */
 sr.updateJudgeIntentions = function updateJudgeIntentions() {
+    'use strict';
     var charisma = parseInt($('#charisma').val(), 10);
     var intuition = parseInt($('#intuition').val(), 10);
     var judgeEl = $('#judge-intentions');
@@ -660,6 +677,7 @@ sr.updateJudgeIntentions = function updateJudgeIntentions() {
  * Update a character's lift/carry rating when one of its base stats change.
  */
 sr.updateLift = function updateLift() {
+    'use strict';
     var strength = parseInt($('#strength').val(), 10);
     var body = parseInt($('#body').val(), 10);
     var liftEl = $('#lift');
@@ -674,6 +692,7 @@ sr.updateLift = function updateLift() {
  * Update a character's memory rating when its base stats change.
  */
 sr.updateMemory = function updateMemory() {
+    'use strict';
     var logic = parseInt($('#logic').val(), 10);
     var willpower = parseInt($('#willpower').val(), 10);
     var memoryEl = $('#memory');
@@ -688,6 +707,7 @@ sr.updateMemory = function updateMemory() {
  * Update a character's initiative when its base stats change.
  */
 sr.updateInitiative = function updateInitiative() {
+    'use strict';
     var intuition = parseInt($('#intuition').val(), 10);
     var reaction = parseInt($('#reaction').val(), 10);
     var initiativeEl = $('#initiative');
@@ -704,6 +724,7 @@ sr.updateInitiative = function updateInitiative() {
  * @param {Event} e
  */
 sr.updateRacePriority = function updateRace(e) {
+    'use strict';
     var race = $(e.target).val().slice(0, -2);
     var priority = $(e.target).val().slice(-1);
     sr.updateAttributeLimits(race);
@@ -717,6 +738,7 @@ sr.updateRacePriority = function updateRace(e) {
  * @param {string} race
  */
 sr.updateQualitiesForRace = function updateQualitiesForRace(race) {
+    'use strict';
     // Only elves, dwarves, and orks may take the Human Looking quality.
     if ('elf' === race || 'dwarf' === race || 'ork' === race) {
         $('#human-looking').prop('disabled', false);
@@ -746,6 +768,7 @@ sr.updateQualitiesForRace = function updateQualitiesForRace(race) {
  * Update how many special points the character has remaining.
  */
 sr.updateSpecialPoints = function updateSpecialPoints(e) {
+    'use strict';
     var edge = parseInt($('#edge').val(), 10);
     var magic = parseInt($('#magic').val(), 10);
     var resonance = parseInt($('#resonance').val(), 10);
@@ -774,6 +797,7 @@ sr.updateSpecialPoints = function updateSpecialPoints(e) {
  * @param {string} metatype Metatype the user chose
  */
 sr.updateAttributeLimits = function updateAttributeLimits(metatype) {
+    'use strict';
     var attributeLimits = sr.metatypeAttributeLimits[metatype];
     var input;
     var edgeInput = $('#edge')[0];
@@ -801,6 +825,7 @@ sr.updateAttributeLimits = function updateAttributeLimits(metatype) {
  * @param {string} priority Priority level the race was chosen at
  */
 sr.updateSpecialPointTotal = function updateSpecialPointTotal(race, priority) {
+    'use strict';
     var points = {
         dwarf: { a: 7, b: 4, c: 1 },
         elf: { a: 8, b: 6, c: 3, d: 0 },
@@ -818,6 +843,7 @@ sr.updateSpecialPointTotal = function updateSpecialPointTotal(race, priority) {
  * The user has selected no magic, remove any of the magic options.
  */
 sr.removeMagic = function removeMagic() {
+    'use strict';
     $('#magic').val(0).prop('disabled', 'disabled');
     $('#astral-chameleon').prop('disabled', 'disabled');
     $('#focused-concentration').prop('disabled', 'disabled');
@@ -834,6 +860,7 @@ sr.removeMagic = function removeMagic() {
  */
 sr.calculateQualities = function calculateQualities(e)
 {
+    'use strict';
     var quality = e.target.id;
     var cost;
 
@@ -862,6 +889,7 @@ sr.calculateQualities = function calculateQualities(e)
  */
 sr.updateQualities = function updateQualities()
 {
+    'use strict';
     var karmaPointInput = $('#karma-points')[0];
     var cost = 0;
 
