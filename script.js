@@ -545,7 +545,9 @@ sr.changeColumnSelection = function changeColumnSelection(cell) {
     var base = cell.id.slice(0, -1);
     var $cell;
     var $priority;
-    for (var i in {a: 1, b: 1, c: 1, d: 1, e: 1}) {
+    var i;
+
+    for (i in {a: 1, b: 1, c: 1, d: 1, e: 1}) {
         if (base + i === cell.id) {
             // Given cell is the one that was clicked.
             continue;
