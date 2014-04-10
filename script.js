@@ -36,8 +36,14 @@ sr.freeAttributePoints = 0;
  */
 sr.attributePoints = 0;
 
+/**
+ * @type {Number} Amount of karma the user has to play with.
+ */
 sr.karma = 25;
 
+/**
+ * @type {Object}
+ */
 sr.selectedQualties = {};
 
 /**
@@ -111,6 +117,9 @@ sr.metatypeAttributeLimits = {
     }
 };
 
+/**
+ * @type {Object} Map of qualities to either their cost or a cost function.
+ */
 sr.qualities = {
     'ambidextrous': {
         "cost": 4
