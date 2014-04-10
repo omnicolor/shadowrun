@@ -427,7 +427,7 @@ sr.setupHandlers = function setupHandlers() {
     $('#magic-e').on('click', sr.removeMagic);
     $('input[name="quality[]"]').on('change', sr.calculateQualities);
 
-    $('#exceptional-attribute-select').on('change', function (e) {
+    $('#exceptional-attribute-select').on('change', function () {
         var selectedAttribute = $("#exceptional-attribute-select").find("option:selected").val();
         var metatype = $('#metatype')[0].value;
 
@@ -441,7 +441,7 @@ sr.setupHandlers = function setupHandlers() {
         }
     });
 
-    $('#focused-concentration-select').on('change', function (e) {
+    $('#focused-concentration-select').on('change', function () {
         var select = $('#focused-concentration-select')[0];
         var multiplier = parseInt(select.value, 10);
 
@@ -451,7 +451,7 @@ sr.setupHandlers = function setupHandlers() {
         sr.updateQualities();
     });
 
-    $('#will-to-live-select').on('change', function (e) {
+    $('#will-to-live-select').on('change', function () {
         var select = $('#will-to-live-select')[0];
         var multiplier = parseInt(select.value, 10);
 
@@ -461,7 +461,7 @@ sr.setupHandlers = function setupHandlers() {
         sr.updateQualities();
     });
 
-    $('#magical-resistance-select').on('change', function (e) {
+    $('#magical-resistance-select').on('change', function () {
         var select = $('#magical-resistance-select')[0];
         var multiplier = parseInt(select.value, 10);
 
@@ -471,7 +471,7 @@ sr.setupHandlers = function setupHandlers() {
         sr.updateQualities();
     });
 
-    $('#indomitable-select').on('change', function (e) {
+    $('#indomitable-select').on('change', function () {
         var select = $('#indomitable-select')[0];
         var multiplier = parseInt(select.value, 10);
 
@@ -481,7 +481,7 @@ sr.setupHandlers = function setupHandlers() {
         sr.updateQualities();
     });
 
-    $('#high-pain-tolerance-select').on('change', function (e) {
+    $('#high-pain-tolerance-select').on('change', function () {
         var select = $('#high-pain-tolerance-select')[0];
         var multiplier = parseInt(select.value, 10);
 
@@ -767,7 +767,7 @@ sr.updateQualitiesForRace = function updateQualitiesForRace(race) {
 /**
  * Update how many special points the character has remaining.
  */
-sr.updateSpecialPoints = function updateSpecialPoints(e) {
+sr.updateSpecialPoints = function updateSpecialPoints() {
     'use strict';
     var edge = parseInt($('#edge').val(), 10);
     var magic = parseInt($('#magic').val(), 10);
