@@ -7,7 +7,7 @@ var sr = {};
  * @type {Number} Amount of special points the character starts with based on
  * their race priority.
  */
-sr.specialPointTotal;
+sr.specialPointTotal = 0;
 
 /**
  * @type {Number} Amount of resonance the character gets based on their magic or
