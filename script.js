@@ -894,7 +894,7 @@ sr.updateQualities = function updateQualities() {
     var karmaPointInput = $('#karma-points')[0];
     var cost = 0;
 
-    $.each(sr.selectedQualties, function (key, value) {
+    $.each(sr.selectedQualties, function (unused, value) {
         cost += value;
     });
 
