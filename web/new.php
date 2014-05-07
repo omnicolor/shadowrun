@@ -1,6 +1,6 @@
 <?php
 /**
- * New character form
+ * New character form.
  */
 
 session_start();
