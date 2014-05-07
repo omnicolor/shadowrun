@@ -13,5 +13,6 @@ if ('POST' !== $_SERVER['REQUEST_METHOD']) {
 
 session_start();
 unset($_SESSION['access_token']);
+unset($_SESSION['email']);
 $redirect = filter_var('http://' . $_SERVER['HTTP_HOST'], FILTER_SANITIZE_URL);
 header('Location: ' . $redirect);
