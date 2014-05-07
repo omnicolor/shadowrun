@@ -15,6 +15,7 @@ session_start();
 
 <body>
 
+<form action="new.save.php" method="POST">
 <table class="points-to-spend">
     <tr>
         <td colspan="2">
@@ -1251,7 +1252,8 @@ session_start();
         </tr>
     </table>
 </section>
-
+<input type="submit" value="Create character">
+</form>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="script.js"></script>
 </body>
