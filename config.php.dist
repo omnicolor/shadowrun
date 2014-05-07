@@ -1,0 +1,13 @@
+<?php
+/**
+ * Configuration information for application.
+ *
+ * The Google parts can be found on the Developers Console at
+ * https://console.developers.google.com/project
+ */
+
+return array(
+    'googleId' => '',
+    'googleClientSecret' => '',
+    'googleRedirectUrl' => '',
+);

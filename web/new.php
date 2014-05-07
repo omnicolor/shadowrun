@@ -1,3 +1,10 @@
+<?php
+/**
+ * New character form
+ */
+
+session_start();
+?>
 <!doctype html>
 <html>
 <head>
@@ -9,6 +16,12 @@
 <body>
 
 <table class="points-to-spend">
+    <tr>
+        <td colspan="2">
+            <?php echo $_SESSION['email']; ?>
+            <a href="/logout.php">Logout</a>
+        </td>
+    </tr>
     <tr>
         <th><label for="special-points">Special</label></th>
         <td><input id="special-points" max="9" min="0" name="special-points" readonly type="number"></td>
