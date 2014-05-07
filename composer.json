@@ -4,7 +4,7 @@
     },
     "name": "omnicolor/shadowrun",
     "description": "Shadowrun Character Manager",
-    "license": "MIT",
+    "license": "Apache Version 2.0",
     "minimum-stability": "stable",
     "require": {
         "google/apiclient": "dev-master"
