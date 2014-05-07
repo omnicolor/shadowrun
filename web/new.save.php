@@ -106,6 +106,7 @@ $skills = array(
 );
 
 $character = array(
+    'email' => $_SESSION['email'],
     'attributes' => array(
         'body' => (int)$_POST['body'],
         'agility' => (int)$_POST['agility'],
