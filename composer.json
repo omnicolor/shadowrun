@@ -1,0 +1,12 @@
+{
+    "config": {
+        "bin-dir": "bin"
+    },
+    "name": "omnicolor/shadowrun",
+    "description": "Shadowrun Character Manager",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "require": {
+    },
+    "type": "project"
+}
