@@ -1,5 +1,6 @@
 Vagrant.configure("2") do |config|
-    config.vm.box = "precise32"
+    config.vm.box = "debian-wheezy72-x64-vbox43"
+    config.vm.box_url = "http://box.puphpet.com/debian-wheezy72-x64-vbox43.box"
 
     config.vm.define :web do |web|
         web.vm.hostname = "web"
