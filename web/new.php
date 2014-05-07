@@ -4,6 +4,13 @@
  */
 
 session_start();
+if (!isset($_SESSION['email'])) {
+    // User hasn't logged in.
+    $redirect = 'Location: '
+        . filter_var($_SERVER['HTTP_HOST'], FILTER_SANITIZE_URL);
+    header($redirect);
+    exit();
+}
 ?>
 <!doctype html>
 <html>
