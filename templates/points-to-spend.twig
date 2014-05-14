@@ -1,0 +1,32 @@
+<table class="points-to-spend">
+    <tr>
+        <td colspan="2">
+            <?php echo $_SESSION['email']; ?>
+            <a href="/logout.php">Logout</a>
+        </td>
+    </tr>
+    <tr>
+        <th><label for="special-points">Special</label></th>
+        <td><input id="special-points" max="9" min="0" name="special-points" readonly type="number"></td>
+    </tr>
+    <tr>
+        <th><label for="attribute-points">Attribute</label></th>
+        <td><input id="attribute-points" max="24" min="0" name="attribute-points" readonly type="number"></td>
+    </tr>
+    <tr>
+        <th><label for="karma-points">Karma</label></th>
+        <td><input id="karma-points" max="50" min="0" type="number" readonly value="25"></td>
+    </tr>
+    <tr>
+        <th><label for="skill-group-points">Skill group</label></th>
+        <td><input id="skill-group-points" max="10" min="0" type="number" readonly></td>
+    </tr>
+    <tr>
+        <th><label for="skill-points">Skills</label></th>
+        <td><input id="skill-points" max="46" min="0" type="number" readonly></td>
+    </tr>
+    <tr>
+        <th><label for="money">Money</label></th>
+        <td><input id="money" max="450000" min="0" type="number" readonly></td>
+    </tr>
+</table>
