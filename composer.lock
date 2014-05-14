@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "36866eef6ceb4109882088c4c1ec7668",
+    "hash": "f6e93a73f639d8228322df7b0194bbf3",
     "packages": [
         {
             "name": "google/apiclient",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/google/google-api-php-client.git",
-                "reference": "3757970113b0445271790359f8e944bec6a751fe"
+                "reference": "3f5306f74c24fc32480d2e44824482ad6f26a1bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/3757970113b0445271790359f8e944bec6a751fe",
-                "reference": "3757970113b0445271790359f8e944bec6a751fe",
+                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/3f5306f74c24fc32480d2e44824482ad6f26a1bb",
+                "reference": "3f5306f74c24fc32480d2e44824482ad6f26a1bb",
                 "shasum": ""
             },
             "require": {
@@ -43,7 +43,7 @@
             "keywords": [
                 "google"
             ],
-            "time": "2014-05-06 18:49:16"
+            "time": "2014-05-14 17:51:32"
         }
     ],
     "packages-dev": [
